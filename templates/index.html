@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정환의 AI 트레이더</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Stock Assistant</h1>
+        <div class="input-group">
+            <input type="text" id="userInput" placeholder="예: 삼전 얼마야?" onkeypress="if(event.keyCode==13) sendQuery()">
+            <button onclick="sendQuery()">질문하기</button>
+        </div>
+
+        <div id="loading" style="display:none; margin: 20px;">분석 중...</div>
+
+        <div id="resultArea" class="result-card" style="display: none">
+            <h2 id="stockName"></h2>
+            <div class="price-val"><span id="stockPrice"></span>원</div>
+            <div id="stockChange" class="change-val"></div>
+        </div>
+    </div>
+
+    <script>
+        async function sendQuery(overrideText = null) {
+            const text = overrideText || document.getElementById("userInput").value;
+            const resArea = document.getElementById("resultArea");
+            const loading = document.getElementById("loading");
+
+            if (!text) return;
+
+            loading.style.display = "block";
+            resArea.style.display = "none";
+
+            try {
+                // 백엔드 포트 8000번으로 명시적 요청 가능하나, 같은 서버라면 경로만 써도 됨
+                const response = await fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: text }),
+                });
+
+                if (!response.ok) throw new Error("서버 응답 오류");
+
+                const data = await response.json();
+
+                if (data.status === "success") {
+                    resArea.style.display = "block";
+                    document.getElementById("stockName").innerText = data.name;
+                    document.getElementById("stockPrice").innerText = data.price;
+                    const changeEl = document.getElementById("stockChange");
+                    changeEl.innerText = (data.sign <= "2" ? "▲ " : "▼ ") + data.change;
+                    changeEl.className = "change-val " + (data.sign <= "2" ? "up" : "down");
+                } 
+                else if (data.status === "suggest") {
+                    if (confirm(data.message)) {
+                        sendQuery(data.name); // 확인 누르면 제안된 이름으로 다시 조회
+                    }
+                } 
+                else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error(error);
+                alert("서버와 연결할 수 없습니다. 포트(8000)를 확인하세요.");
+            } finally {
+                loading.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

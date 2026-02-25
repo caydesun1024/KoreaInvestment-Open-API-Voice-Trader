@@ -1,0 +1,31 @@
+[project]
+name = "voice-trader"
+version = "1.0.0"
+description = "AI 주식 매매 비서 프로젝트"
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    # --- 정환님이 방금 요청하신 패키지 ---
+    "pandas>=2.3.1",
+    "pycryptodome>=3.23.0",
+    "pyqt6>=6.9.1",
+    "pyside6>=6.9.1",
+    "pyyaml>=6.0.2",
+    "requests>=2.32.4",
+    "websockets>=15.0.1",
+
+    # --- pykrx 환경 이슈 해결을 위한 필수 고정 패키지 ---
+    "setuptools==81.0.0",
+
+    # --- AI 분석 및 종목 매핑 엔진 ---
+    "pykrx>=1.0.48",
+    "rapidfuzz>=3.10.1",
+    "ollama>=0.4.0",
+    "pydantic>=2.10.0",
+
+    # --- FastAPI 웹 서버 및 프론트엔드 ---
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "jinja2>=3.1.0",
+]
