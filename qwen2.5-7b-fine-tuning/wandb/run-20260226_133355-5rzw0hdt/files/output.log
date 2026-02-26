@@ -1,0 +1,694 @@
+  0%|                                                    | 0/500 [00:00<?, ?it/s]/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+  2%|▊                                         | 9/500 [01:09<1:01:05,  7.47s/it]2026-02-26 13:35:17,228 - INFO -
+{'loss': '4.083', 'grad_norm': '0.2292', 'learning_rate': '0', 'epoch': '0.002'}
+{'loss': '4.445', 'grad_norm': '0.2544', 'learning_rate': '5e-10', 'epoch': '0.004'}
+{'loss': '4.371', 'grad_norm': '0.2095', 'learning_rate': '1e-09', 'epoch': '0.006'}
+{'loss': '4.07', 'grad_norm': '0.2454', 'learning_rate': '1.5e-09', 'epoch': '0.008'}
+{'loss': '4.389', 'grad_norm': '0.2425', 'learning_rate': '2e-09', 'epoch': '0.01'}
+{'loss': '4.453', 'grad_norm': '0.2339', 'learning_rate': '2.5e-09', 'epoch': '0.012'}
+{'loss': '4.16', 'grad_norm': '0.2161', 'learning_rate': '3e-09', 'epoch': '0.014'}
+{'loss': '4.527', 'grad_norm': '0.2534', 'learning_rate': '3.5e-09', 'epoch': '0.016'}
+{'loss': '4.251', 'grad_norm': '0.2224', 'learning_rate': '4e-09', 'epoch': '0.018'}
+==================================================
+2026-02-26 13:35:17,229 - INFO - Training Progress - Step 10
+2026-02-26 13:35:17,229 - INFO - Loss: 4.250593185424805
+2026-02-26 13:35:17,229 - INFO - Input text: 지금 LUS 차이나AI테크TOP10 사 영끌...
+2026-02-26 13:35:17,229 - INFO - True label: {"action": "BUY", "ticker": "0047N0", "name": "LUS 차이나AI테크TOP10", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 13:35:17,230 - INFO - Model prediction: 은 매우 �
+2026-02-26 13:35:17,230 - INFO - ==================================================
+  4%|█▌                                       | 19/500 [02:27<1:00:12,  7.51s/it]2026-02-26 13:36:34,926 - INFO -
+{'loss': '4.309', 'grad_norm': '0.2307', 'learning_rate': '4.5e-09', 'epoch': '0.02'}
+{'loss': '4.36', 'grad_norm': '0.2578', 'learning_rate': '5e-09', 'epoch': '0.022'}
+{'loss': '3.777', 'grad_norm': '0.22', 'learning_rate': '5.5e-09', 'epoch': '0.024'}
+{'loss': '4.33', 'grad_norm': '0.2377', 'learning_rate': '6e-09', 'epoch': '0.026'}
+{'loss': '4.199', 'grad_norm': '0.2397', 'learning_rate': '6.5e-09', 'epoch': '0.028'}
+{'loss': '4.08', 'grad_norm': '0.2101', 'learning_rate': '7e-09', 'epoch': '0.03'}
+{'loss': '4.286', 'grad_norm': '0.2335', 'learning_rate': '7.5e-09', 'epoch': '0.032'}
+{'loss': '4.382', 'grad_norm': '0.2506', 'learning_rate': '8e-09', 'epoch': '0.034'}
+{'loss': '4.303', 'grad_norm': '0.2452', 'learning_rate': '8.5e-09', 'epoch': '0.036'}
+{'loss': '4.073', 'grad_norm': '0.2021', 'learning_rate': '9e-09', 'epoch': '0.038'}
+==================================================
+2026-02-26 13:36:34,927 - INFO - Training Progress - Step 20
+2026-02-26 13:36:34,927 - INFO - Loss: 4.072920322418213
+2026-02-26 13:36:34,927 - INFO - Input text: 익악기 전량 던져...
+2026-02-26 13:36:34,927 - INFO - True label: {"action": "SELL", "ticker": "002450", "name": "익악기", "qty": "MAX"}
+2026-02-26 13:36:34,927 - INFO - Model prediction: 이 성공
+2026-02-26 13:36:34,927 - INFO - ==================================================
+  6%|██▍                                      | 29/500 [03:47<1:04:11,  8.18s/it]2026-02-26 13:37:51,929 - INFO -
+{'loss': '3.878', 'grad_norm': '0.2246', 'learning_rate': '9.5e-09', 'epoch': '0.04'}
+{'loss': '4.324', 'grad_norm': '0.2094', 'learning_rate': '1e-08', 'epoch': '0.042'}
+{'loss': '4.298', 'grad_norm': '0.2336', 'learning_rate': '1.05e-08', 'epoch': '0.044'}
+{'loss': '4.141', 'grad_norm': '0.2376', 'learning_rate': '1.1e-08', 'epoch': '0.046'}
+{'loss': '3.928', 'grad_norm': '0.2253', 'learning_rate': '1.15e-08', 'epoch': '0.048'}
+{'loss': '4.297', 'grad_norm': '0.2299', 'learning_rate': '1.2e-08', 'epoch': '0.05'}
+{'loss': '4.165', 'grad_norm': '0.2236', 'learning_rate': '1.25e-08', 'epoch': '0.052'}
+{'loss': '4.309', 'grad_norm': '0.2579', 'learning_rate': '1.3e-08', 'epoch': '0.054'}
+{'loss': '4.186', 'grad_norm': '0.225', 'learning_rate': '1.35e-08', 'epoch': '0.056'}
+{'loss': '4.16', 'grad_norm': '0.2331', 'learning_rate': '1.4e-08', 'epoch': '0.058'}
+==================================================
+2026-02-26 13:37:51,930 - INFO - Training Progress - Step 30
+2026-02-26 13:37:51,930 - INFO - Loss: 4.159682273864746
+2026-02-26 13:37:51,930 - INFO - Input text: 이마켓코리아 영끌 익절...
+2026-02-26 13:37:51,930 - INFO - True label: {"action": "SELL", "ticker": "122900", "name": "이마켓코리아", "qty": "MAX"}
+2026-02-26 13:37:51,930 - INFO - Model prediction: 을 도와
+2026-02-26 13:37:51,930 - INFO - ==================================================
+  8%|███▏                                     | 39/500 [05:05<1:00:18,  7.85s/it]2026-02-26 13:39:10,262 - INFO -
+{'loss': '4.284', 'grad_norm': '0.2238', 'learning_rate': '1.45e-08', 'epoch': '0.06'}
+{'loss': '4.087', 'grad_norm': '0.2167', 'learning_rate': '1.5e-08', 'epoch': '0.062'}
+{'loss': '4.316', 'grad_norm': '0.2147', 'learning_rate': '1.55e-08', 'epoch': '0.064'}
+{'loss': '4.404', 'grad_norm': '0.2324', 'learning_rate': '1.6e-08', 'epoch': '0.066'}
+{'loss': '3.957', 'grad_norm': '0.2017', 'learning_rate': '1.65e-08', 'epoch': '0.068'}
+{'loss': '4.202', 'grad_norm': '0.2292', 'learning_rate': '1.7e-08', 'epoch': '0.07'}
+{'loss': '4.326', 'grad_norm': '0.2245', 'learning_rate': '1.75e-08', 'epoch': '0.072'}
+{'loss': '4.144', 'grad_norm': '0.2283', 'learning_rate': '1.8e-08', 'epoch': '0.074'}
+{'loss': '4.197', 'grad_norm': '0.2006', 'learning_rate': '1.85e-08', 'epoch': '0.076'}
+{'loss': '4.17', 'grad_norm': '0.2236', 'learning_rate': '1.9e-08', 'epoch': '0.078'}
+==================================================
+2026-02-26 13:39:10,263 - INFO - Training Progress - Step 40
+2026-02-26 13:39:10,263 - INFO - Loss: 4.169607639312744
+2026-02-26 13:39:10,263 - INFO - Input text: 이투솔루션 얼마임?...
+2026-02-26 13:39:10,263 - INFO - True label: {"action": "INQUIRY", "ticker": "011690", "name": "이투솔루션"}
+2026-02-26 13:39:10,263 - INFO - Model prediction:  목록을
+2026-02-26 13:39:10,263 - INFO - ==================================================
+ 10%|████▏                                      | 49/500 [06:23<56:34,  7.53s/it]2026-02-26 13:40:27,790 - INFO -
+{'loss': '4.311', 'grad_norm': '0.2227', 'learning_rate': '1.95e-08', 'epoch': '0.08'}
+{'loss': '4.407', 'grad_norm': '0.2206', 'learning_rate': '2e-08', 'epoch': '0.082'}
+{'loss': '4.332', 'grad_norm': '0.2267', 'learning_rate': '2.05e-08', 'epoch': '0.084'}
+{'loss': '4.229', 'grad_norm': '0.2411', 'learning_rate': '2.1e-08', 'epoch': '0.086'}
+{'loss': '4.471', 'grad_norm': '0.2448', 'learning_rate': '2.15e-08', 'epoch': '0.088'}
+{'loss': '4.053', 'grad_norm': '0.2066', 'learning_rate': '2.2e-08', 'epoch': '0.09'}
+{'loss': '4.405', 'grad_norm': '0.2471', 'learning_rate': '2.25e-08', 'epoch': '0.092'}
+{'loss': '4.638', 'grad_norm': '0.2372', 'learning_rate': '2.3e-08', 'epoch': '0.094'}
+{'loss': '4.029', 'grad_norm': '0.2171', 'learning_rate': '2.35e-08', 'epoch': '0.096'}
+{'loss': '4.243', 'grad_norm': '0.2498', 'learning_rate': '2.4e-08', 'epoch': '0.098'}
+==================================================
+2026-02-26 13:40:27,790 - INFO - Training Progress - Step 50
+2026-02-26 13:40:27,790 - INFO - Loss: 4.2433576583862305
+2026-02-26 13:40:27,790 - INFO - Input text: ODEX 기후변화솔루션이 절반 최우선 매수...
+2026-02-26 13:40:27,790 - INFO - True label: {"action": "BUY", "ticker": "404260", "name": "ODEX 기후변화솔루션", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 13:40:27,790 - INFO - Model prediction: 을 위한 최
+2026-02-26 13:40:27,791 - INFO - ==================================================
+ 10%|████▎                                      | 50/500 [10:26<56:34,  7.54s/it]2026-02-26 13:44:24,142 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.256', 'grad_norm': '0.2309', 'learning_rate': '2.45e-08', 'epoch': '0.1'}
+2026-02-26 13:44:24,151 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.278', 'eval_runtime': '236.1', 'eval_samples_per_second': '4.236', 'eval_steps_per_second': '4.236', 'epoch': '0.1'}
+2026-02-26 13:44:24,350 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 13:44:24,362 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 12%|████▊                                    | 59/500 [11:37<1:26:42, 11.80s/it]2026-02-26 13:45:42,843 - INFO -
+{'loss': '4.455', 'grad_norm': '0.2261', 'learning_rate': '2.5e-08', 'epoch': '0.102'}
+{'loss': '3.897', 'grad_norm': '0.2144', 'learning_rate': '2.55e-08', 'epoch': '0.104'}
+{'loss': '4.075', 'grad_norm': '0.2049', 'learning_rate': '2.6e-08', 'epoch': '0.106'}
+{'loss': '4.222', 'grad_norm': '0.2082', 'learning_rate': '2.65e-08', 'epoch': '0.108'}
+{'loss': '4.366', 'grad_norm': '0.2536', 'learning_rate': '2.7e-08', 'epoch': '0.11'}
+{'loss': '4.29', 'grad_norm': '0.2188', 'learning_rate': '2.75e-08', 'epoch': '0.112'}
+{'loss': '4.34', 'grad_norm': '0.2492', 'learning_rate': '2.8e-08', 'epoch': '0.114'}
+{'loss': '4.073', 'grad_norm': '0.2082', 'learning_rate': '2.85e-08', 'epoch': '0.116'}
+{'loss': '4.134', 'grad_norm': '0.2311', 'learning_rate': '2.9e-08', 'epoch': '0.118'}
+==================================================
+2026-02-26 13:45:42,844 - INFO - Training Progress - Step 60
+2026-02-26 13:45:42,845 - INFO - Loss: 4.133853912353516
+2026-02-26 13:45:42,845 - INFO - Input text: IGER 미국30년국채커버드콜액티브(H) 100주만 구매...
+2026-02-26 13:45:42,845 - INFO - True label: {"action": "BUY", "ticker": "476550", "name": "IGER 미국30년국채커버드콜액티브(H)", "qty": "100", "type": "MARKET"}
+2026-02-26 13:45:42,845 - INFO - Model prediction: 은 이 게
+2026-02-26 13:45:42,845 - INFO - ==================================================
+ 14%|█████▉                                     | 69/500 [12:58<56:30,  7.87s/it]2026-02-26 13:47:06,517 - INFO -
+{'loss': '3.934', 'grad_norm': '0.2097', 'learning_rate': '2.95e-08', 'epoch': '0.12'}
+{'loss': '4.564', 'grad_norm': '0.2176', 'learning_rate': '3e-08', 'epoch': '0.122'}
+{'loss': '4.394', 'grad_norm': '0.2632', 'learning_rate': '3.05e-08', 'epoch': '0.124'}
+{'loss': '4.115', 'grad_norm': '0.2348', 'learning_rate': '3.1e-08', 'epoch': '0.126'}
+{'loss': '4.238', 'grad_norm': '0.2293', 'learning_rate': '3.15e-08', 'epoch': '0.128'}
+{'loss': '4.28', 'grad_norm': '0.2462', 'learning_rate': '3.2e-08', 'epoch': '0.13'}
+{'loss': '4.288', 'grad_norm': '0.2211', 'learning_rate': '3.25e-08', 'epoch': '0.132'}
+{'loss': '4.156', 'grad_norm': '0.2224', 'learning_rate': '3.3e-08', 'epoch': '0.134'}
+{'loss': '4.2', 'grad_norm': '0.2102', 'learning_rate': '3.35e-08', 'epoch': '0.136'}
+{'loss': '4.383', 'grad_norm': '0.2299', 'learning_rate': '3.4e-08', 'epoch': '0.138'}
+==================================================
+2026-02-26 13:47:06,518 - INFO - Training Progress - Step 70
+2026-02-26 13:47:06,518 - INFO - Loss: 4.383298873901367
+2026-02-26 13:47:06,518 - INFO - Input text: 셋플러스 글로벌영에이지액티브 얼만지 봐봐...
+2026-02-26 13:47:06,518 - INFO - True label: {"action": "INQUIRY", "ticker": "451150", "name": "셋플러스 글로벌영에이지액티브"}
+2026-02-26 13:47:06,519 - INFO - Model prediction: 은 다음과 같이
+2026-02-26 13:47:06,519 - INFO - ==================================================
+ 16%|██████▊                                    | 79/500 [14:21<59:12,  8.44s/it]2026-02-26 13:48:25,973 - INFO -
+{'loss': '4.025', 'grad_norm': '0.1949', 'learning_rate': '3.45e-08', 'epoch': '0.14'}
+{'loss': '4.21', 'grad_norm': '0.2077', 'learning_rate': '3.5e-08', 'epoch': '0.142'}
+{'loss': '3.907', 'grad_norm': '0.2041', 'learning_rate': '3.55e-08', 'epoch': '0.144'}
+{'loss': '4.166', 'grad_norm': '0.2199', 'learning_rate': '3.6e-08', 'epoch': '0.146'}
+{'loss': '4.187', 'grad_norm': '0.2297', 'learning_rate': '3.65e-08', 'epoch': '0.148'}
+{'loss': '4.578', 'grad_norm': '0.2542', 'learning_rate': '3.7e-08', 'epoch': '0.15'}
+{'loss': '4.189', 'grad_norm': '0.2305', 'learning_rate': '3.75e-08', 'epoch': '0.152'}
+{'loss': '4.29', 'grad_norm': '0.2011', 'learning_rate': '3.8e-08', 'epoch': '0.154'}
+{'loss': '3.932', 'grad_norm': '0.2249', 'learning_rate': '3.85e-08', 'epoch': '0.156'}
+{'loss': '4.163', 'grad_norm': '0.2147', 'learning_rate': '3.9e-08', 'epoch': '0.158'}
+==================================================
+2026-02-26 13:48:25,974 - INFO - Training Progress - Step 80
+2026-02-26 13:48:25,975 - INFO - Loss: 4.162816047668457
+2026-02-26 13:48:25,975 - INFO - Input text: KME 절반 지정가로 담아...
+2026-02-26 13:48:25,975 - INFO - True label: {"action": "BUY", "ticker": "015590", "name": "KME", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 13:48:25,975 - INFO - Model prediction: 이 무엇인지
+2026-02-26 13:48:25,975 - INFO - ==================================================
+ 18%|███████▋                                   | 89/500 [15:41<55:42,  8.13s/it]2026-02-26 13:49:45,292 - INFO -
+{'loss': '4.219', 'grad_norm': '0.2588', 'learning_rate': '3.95e-08', 'epoch': '0.16'}
+{'loss': '4.292', 'grad_norm': '0.2182', 'learning_rate': '4e-08', 'epoch': '0.162'}
+{'loss': '4.086', 'grad_norm': '0.2151', 'learning_rate': '4.05e-08', 'epoch': '0.164'}
+{'loss': '4.302', 'grad_norm': '0.2292', 'learning_rate': '4.1e-08', 'epoch': '0.166'}
+{'loss': '4.221', 'grad_norm': '0.2234', 'learning_rate': '4.15e-08', 'epoch': '0.168'}
+{'loss': '4.193', 'grad_norm': '0.2343', 'learning_rate': '4.2e-08', 'epoch': '0.17'}
+{'loss': '4.31', 'grad_norm': '0.2047', 'learning_rate': '4.25e-08', 'epoch': '0.172'}
+{'loss': '4.158', 'grad_norm': '0.2236', 'learning_rate': '4.3e-08', 'epoch': '0.174'}
+{'loss': '3.961', 'grad_norm': '0.2153', 'learning_rate': '4.35e-08', 'epoch': '0.176'}
+{'loss': '4.076', 'grad_norm': '0.2313', 'learning_rate': '4.4e-08', 'epoch': '0.178'}
+==================================================
+2026-02-26 13:49:45,293 - INFO - Training Progress - Step 90
+2026-02-26 13:49:45,293 - INFO - Loss: 4.075808525085449
+2026-02-26 13:49:45,293 - INFO - Input text: DC 전량 처분...
+2026-02-26 13:49:45,294 - INFO - True label: {"action": "SELL", "ticker": "012630", "name": "DC", "qty": "MAX"}
+2026-02-26 13:49:45,294 - INFO - Model prediction: 은 �
+2026-02-26 13:49:45,294 - INFO - ==================================================
+ 20%|████████▌                                  | 99/500 [16:59<52:13,  7.81s/it]2026-02-26 13:51:04,348 - INFO -
+{'loss': '4.171', 'grad_norm': '0.2126', 'learning_rate': '4.45e-08', 'epoch': '0.18'}
+{'loss': '4.135', 'grad_norm': '0.2148', 'learning_rate': '4.5e-08', 'epoch': '0.182'}
+{'loss': '4.39', 'grad_norm': '0.2388', 'learning_rate': '4.55e-08', 'epoch': '0.184'}
+{'loss': '4.175', 'grad_norm': '0.2581', 'learning_rate': '4.6e-08', 'epoch': '0.186'}
+{'loss': '4.323', 'grad_norm': '0.2272', 'learning_rate': '4.65e-08', 'epoch': '0.188'}
+{'loss': '4.364', 'grad_norm': '0.2446', 'learning_rate': '4.7e-08', 'epoch': '0.19'}
+{'loss': '4.531', 'grad_norm': '0.2654', 'learning_rate': '4.75e-08', 'epoch': '0.192'}
+{'loss': '4.131', 'grad_norm': '0.2116', 'learning_rate': '4.8e-08', 'epoch': '0.194'}
+{'loss': '4.488', 'grad_norm': '0.2796', 'learning_rate': '4.85e-08', 'epoch': '0.196'}
+{'loss': '4.091', 'grad_norm': '0.2209', 'learning_rate': '4.9e-08', 'epoch': '0.198'}
+==================================================
+2026-02-26 13:51:04,348 - INFO - Training Progress - Step 100
+2026-02-26 13:51:04,349 - INFO - Loss: 4.090751647949219
+2026-02-26 13:51:04,349 - INFO - Input text: 워 코스피100 시세좀...
+2026-02-26 13:51:04,349 - INFO - True label: {"action": "INQUIRY", "ticker": "140950", "name": "워 코스피100"}
+2026-02-26 13:51:04,349 - INFO - Model prediction: 은 이 �
+2026-02-26 13:51:04,349 - INFO - ==================================================
+ 20%|████████▍                                 | 100/500 [21:10<51:41,  7.75s/it]2026-02-26 13:55:07,260 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.024', 'grad_norm': '0.2338', 'learning_rate': '4.95e-08', 'epoch': '0.2'}
+2026-02-26 13:55:07,275 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.277', 'eval_runtime': '242.6', 'eval_samples_per_second': '4.122', 'eval_steps_per_second': '4.122', 'epoch': '0.2'}
+2026-02-26 13:55:07,483 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 13:55:07,499 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.142', 'grad_norm': '0.2062', 'learning_rate': '5e-08', 'epoch': '0.202'}
+{'loss': '4.026', 'grad_norm': '0.2173', 'learning_rate': '4.988e-08', 'epoch': '0.204'}
+{'loss': '4.248', 'grad_norm': '0.2', 'learning_rate': '4.975e-08', 'epoch': '0.206'}
+{'loss': '4.423', 'grad_norm': '0.2466', 'learning_rate': '4.963e-08', 'epoch': '0.208'}
+{'loss': '4.079', 'grad_norm': '0.2088', 'learning_rate': '4.95e-08', 'epoch': '0.21'}
+{'loss': '3.947', 'grad_norm': '0.2163', 'learning_rate': '4.937e-08', 'epoch': '0.212'}
+{'loss': '4.185', 'grad_norm': '0.2178', 'learning_rate': '4.925e-08', 'epoch': '0.214'}
+{'loss': '4.388', 'grad_norm': '0.2347', 'learning_rate': '4.912e-08', 'epoch': '0.216'}
+{'loss': '4.391', 'grad_norm': '0.2314', 'learning_rate': '4.9e-08', 'epoch': '0.218'}
+{'loss': '4.263', 'grad_norm': '0.2254', 'learning_rate': '4.887e-08', 'epoch': '0.22'}
+{'loss': '3.99', 'grad_norm': '0.2309', 'learning_rate': '4.875e-08', 'epoch': '0.222'}
+{'loss': '4.241', 'grad_norm': '0.2209', 'learning_rate': '4.863e-08', 'epoch': '0.224'}
+{'loss': '4.241', 'grad_norm': '0.2394', 'learning_rate': '4.85e-08', 'epoch': '0.226'}
+{'loss': '4.093', 'grad_norm': '0.2424', 'learning_rate': '4.838e-08', 'epoch': '0.228'}
+{'loss': '3.817', 'grad_norm': '0.2003', 'learning_rate': '4.825e-08', 'epoch': '0.23'}
+{'loss': '3.977', 'grad_norm': '0.2435', 'learning_rate': '4.812e-08', 'epoch': '0.232'}
+{'loss': '4.33', 'grad_norm': '0.2526', 'learning_rate': '4.8e-08', 'epoch': '0.234'}
+{'loss': '4.008', 'grad_norm': '0.2257', 'learning_rate': '4.787e-08', 'epoch': '0.236'}
+{'loss': '4.499', 'grad_norm': '0.2998', 'learning_rate': '4.775e-08', 'epoch': '0.238'}
+{'loss': '4.35', 'grad_norm': '0.221', 'learning_rate': '4.762e-08', 'epoch': '0.24'}
+{'loss': '4.402', 'grad_norm': '0.2166', 'learning_rate': '4.75e-08', 'epoch': '0.242'}
+{'loss': '4.419', 'grad_norm': '0.2377', 'learning_rate': '4.737e-08', 'epoch': '0.244'}
+{'loss': '3.985', 'grad_norm': '0.2156', 'learning_rate': '4.725e-08', 'epoch': '0.246'}
+{'loss': '4.079', 'grad_norm': '0.2357', 'learning_rate': '4.713e-08', 'epoch': '0.248'}
+{'loss': '4.059', 'grad_norm': '0.2197', 'learning_rate': '4.7e-08', 'epoch': '0.25'}
+{'loss': '4.009', 'grad_norm': '0.2086', 'learning_rate': '4.688e-08', 'epoch': '0.252'}
+{'loss': '4.407', 'grad_norm': '0.2331', 'learning_rate': '4.675e-08', 'epoch': '0.254'}
+{'loss': '4.22', 'grad_norm': '0.2357', 'learning_rate': '4.662e-08', 'epoch': '0.256'}
+{'loss': '4.388', 'grad_norm': '0.222', 'learning_rate': '4.65e-08', 'epoch': '0.258'}
+{'loss': '4.303', 'grad_norm': '0.2047', 'learning_rate': '4.637e-08', 'epoch': '0.26'}
+{'loss': '4.143', 'grad_norm': '0.2241', 'learning_rate': '4.625e-08', 'epoch': '0.262'}
+{'loss': '3.921', 'grad_norm': '0.199', 'learning_rate': '4.612e-08', 'epoch': '0.264'}
+{'loss': '4.045', 'grad_norm': '0.2281', 'learning_rate': '4.6e-08', 'epoch': '0.266'}
+{'loss': '4.513', 'grad_norm': '0.244', 'learning_rate': '4.587e-08', 'epoch': '0.268'}
+{'loss': '4.087', 'grad_norm': '0.2212', 'learning_rate': '4.575e-08', 'epoch': '0.27'}
+{'loss': '4.242', 'grad_norm': '0.2385', 'learning_rate': '4.562e-08', 'epoch': '0.272'}
+{'loss': '4.316', 'grad_norm': '0.2785', 'learning_rate': '4.55e-08', 'epoch': '0.274'}
+{'loss': '4.199', 'grad_norm': '0.2444', 'learning_rate': '4.537e-08', 'epoch': '0.276'}
+{'loss': '4.133', 'grad_norm': '0.2361', 'learning_rate': '4.525e-08', 'epoch': '0.278'}
+{'loss': '3.941', 'grad_norm': '0.2176', 'learning_rate': '4.512e-08', 'epoch': '0.28'}
+{'loss': '4.338', 'grad_norm': '0.2329', 'learning_rate': '4.5e-08', 'epoch': '0.282'}
+{'loss': '4.028', 'grad_norm': '0.2134', 'learning_rate': '4.487e-08', 'epoch': '0.284'}
+{'loss': '4.294', 'grad_norm': '0.2297', 'learning_rate': '4.475e-08', 'epoch': '0.286'}
+{'loss': '3.858', 'grad_norm': '0.2023', 'learning_rate': '4.462e-08', 'epoch': '0.288'}
+{'loss': '4.319', 'grad_norm': '0.2379', 'learning_rate': '4.45e-08', 'epoch': '0.29'}
+{'loss': '4.459', 'grad_norm': '0.2621', 'learning_rate': '4.437e-08', 'epoch': '0.292'}
+{'loss': '4.07', 'grad_norm': '0.2082', 'learning_rate': '4.425e-08', 'epoch': '0.294'}
+{'loss': '4.42', 'grad_norm': '0.2235', 'learning_rate': '4.412e-08', 'epoch': '0.296'}
+{'loss': '4.332', 'grad_norm': '0.2416', 'learning_rate': '4.4e-08', 'epoch': '0.298'}
+{'loss': '4.251', 'grad_norm': '0.2265', 'learning_rate': '4.387e-08', 'epoch': '0.3'}
+2026-02-26 14:05:56,791 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.274', 'eval_runtime': '245', 'eval_samples_per_second': '4.082', 'eval_steps_per_second': '4.082', 'epoch': '0.3'}
+2026-02-26 14:05:57,007 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:05:57,021 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.034', 'grad_norm': '0.2408', 'learning_rate': '4.375e-08', 'epoch': '0.302'}
+{'loss': '4.414', 'grad_norm': '0.254', 'learning_rate': '4.363e-08', 'epoch': '0.304'}
+{'loss': '4.084', 'grad_norm': '0.2057', 'learning_rate': '4.35e-08', 'epoch': '0.306'}
+{'loss': '4.505', 'grad_norm': '0.2648', 'learning_rate': '4.338e-08', 'epoch': '0.308'}
+{'loss': '4.518', 'grad_norm': '0.2532', 'learning_rate': '4.325e-08', 'epoch': '0.31'}
+{'loss': '4.067', 'grad_norm': '0.2294', 'learning_rate': '4.312e-08', 'epoch': '0.312'}
+{'loss': '4.192', 'grad_norm': '0.2115', 'learning_rate': '4.3e-08', 'epoch': '0.314'}
+{'loss': '4.298', 'grad_norm': '0.2462', 'learning_rate': '4.287e-08', 'epoch': '0.316'}
+{'loss': '4.11', 'grad_norm': '0.2157', 'learning_rate': '4.275e-08', 'epoch': '0.318'}
+{'loss': '4.476', 'grad_norm': '0.2312', 'learning_rate': '4.262e-08', 'epoch': '0.32'}
+{'loss': '4.284', 'grad_norm': '0.2527', 'learning_rate': '4.25e-08', 'epoch': '0.322'}
+{'loss': '4.151', 'grad_norm': '0.2305', 'learning_rate': '4.238e-08', 'epoch': '0.324'}
+{'loss': '4.128', 'grad_norm': '0.2076', 'learning_rate': '4.225e-08', 'epoch': '0.326'}
+{'loss': '4.423', 'grad_norm': '0.258', 'learning_rate': '4.213e-08', 'epoch': '0.328'}
+{'loss': '3.99', 'grad_norm': '0.2306', 'learning_rate': '4.2e-08', 'epoch': '0.33'}
+{'loss': '4.032', 'grad_norm': '0.2033', 'learning_rate': '4.187e-08', 'epoch': '0.332'}
+{'loss': '4.265', 'grad_norm': '0.2294', 'learning_rate': '4.175e-08', 'epoch': '0.334'}
+{'loss': '4.233', 'grad_norm': '0.2065', 'learning_rate': '4.162e-08', 'epoch': '0.336'}
+{'loss': '4.137', 'grad_norm': '0.2045', 'learning_rate': '4.15e-08', 'epoch': '0.338'}
+{'loss': '4.031', 'grad_norm': '0.2213', 'learning_rate': '4.137e-08', 'epoch': '0.34'}
+{'loss': '4.288', 'grad_norm': '0.2285', 'learning_rate': '4.125e-08', 'epoch': '0.342'}
+{'loss': '4.139', 'grad_norm': '0.2346', 'learning_rate': '4.112e-08', 'epoch': '0.344'}
+{'loss': '4.33', 'grad_norm': '0.2471', 'learning_rate': '4.1e-08', 'epoch': '0.346'}
+{'loss': '4.092', 'grad_norm': '0.2293', 'learning_rate': '4.088e-08', 'epoch': '0.348'}
+{'loss': '4.484', 'grad_norm': '0.2693', 'learning_rate': '4.075e-08', 'epoch': '0.35'}
+{'loss': '4.4', 'grad_norm': '0.2147', 'learning_rate': '4.062e-08', 'epoch': '0.352'}
+{'loss': '4.129', 'grad_norm': '0.2443', 'learning_rate': '4.05e-08', 'epoch': '0.354'}
+{'loss': '4.228', 'grad_norm': '0.2206', 'learning_rate': '4.037e-08', 'epoch': '0.356'}
+{'loss': '4.124', 'grad_norm': '0.2343', 'learning_rate': '4.025e-08', 'epoch': '0.358'}
+{'loss': '4.253', 'grad_norm': '0.219', 'learning_rate': '4.012e-08', 'epoch': '0.36'}
+{'loss': '4.236', 'grad_norm': '0.2113', 'learning_rate': '4e-08', 'epoch': '0.362'}
+{'loss': '3.889', 'grad_norm': '0.2153', 'learning_rate': '3.987e-08', 'epoch': '0.364'}
+{'loss': '4.357', 'grad_norm': '0.2226', 'learning_rate': '3.975e-08', 'epoch': '0.366'}
+{'loss': '4.147', 'grad_norm': '0.2367', 'learning_rate': '3.962e-08', 'epoch': '0.368'}
+{'loss': '3.935', 'grad_norm': '0.1962', 'learning_rate': '3.95e-08', 'epoch': '0.37'}
+{'loss': '4.008', 'grad_norm': '0.2126', 'learning_rate': '3.938e-08', 'epoch': '0.372'}
+{'loss': '3.96', 'grad_norm': '0.2202', 'learning_rate': '3.925e-08', 'epoch': '0.374'}
+{'loss': '4.21', 'grad_norm': '0.2339', 'learning_rate': '3.912e-08', 'epoch': '0.376'}
+{'loss': '4.159', 'grad_norm': '0.2044', 'learning_rate': '3.9e-08', 'epoch': '0.378'}
+{'loss': '4.093', 'grad_norm': '0.2464', 'learning_rate': '3.887e-08', 'epoch': '0.38'}
+{'loss': '4.262', 'grad_norm': '0.2369', 'learning_rate': '3.875e-08', 'epoch': '0.382'}
+{'loss': '4.481', 'grad_norm': '0.2122', 'learning_rate': '3.862e-08', 'epoch': '0.384'}
+{'loss': '4.387', 'grad_norm': '0.2461', 'learning_rate': '3.85e-08', 'epoch': '0.386'}
+{'loss': '4.246', 'grad_norm': '0.2049', 'learning_rate': '3.837e-08', 'epoch': '0.388'}
+{'loss': '4.428', 'grad_norm': '0.235', 'learning_rate': '3.825e-08', 'epoch': '0.39'}
+{'loss': '3.856', 'grad_norm': '0.2131', 'learning_rate': '3.812e-08', 'epoch': '0.392'}
+{'loss': '4.317', 'grad_norm': '0.2431', 'learning_rate': '3.8e-08', 'epoch': '0.394'}
+{'loss': '4.221', 'grad_norm': '0.2379', 'learning_rate': '3.787e-08', 'epoch': '0.396'}
+{'loss': '4.367', 'grad_norm': '0.2437', 'learning_rate': '3.775e-08', 'epoch': '0.398'}
+==================================================
+2026-02-26 14:12:33,601 - INFO - Training Progress - Step 200
+2026-02-26 14:12:33,602 - INFO - Loss: 4.366790294647217
+2026-02-26 14:12:33,602 - INFO - Input text: 어부산 시세...
+2026-02-26 14:12:33,602 - INFO - True label: {"action": "INQUIRY", "ticker": "298690", "name": "어부산"}
+2026-02-26 14:12:33,602 - INFO - Model prediction: 을 돕
+2026-02-26 14:12:33,602 - INFO - ==================================================
+ 40%|████████████████▊                         | 200/500 [42:41<41:03,  8.21s/it]2026-02-26 14:16:38,681 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.256', 'grad_norm': '0.2224', 'learning_rate': '3.762e-08', 'epoch': '0.4'}
+2026-02-26 14:16:38,690 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.275', 'eval_runtime': '244.8', 'eval_samples_per_second': '4.085', 'eval_steps_per_second': '4.085', 'epoch': '0.4'}
+2026-02-26 14:16:38,906 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:16:38,917 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.174', 'grad_norm': '0.217', 'learning_rate': '3.75e-08', 'epoch': '0.402'}
+{'loss': '4.463', 'grad_norm': '0.2494', 'learning_rate': '3.738e-08', 'epoch': '0.404'}
+{'loss': '4.43', 'grad_norm': '0.215', 'learning_rate': '3.725e-08', 'epoch': '0.406'}
+{'loss': '4.319', 'grad_norm': '0.2164', 'learning_rate': '3.713e-08', 'epoch': '0.408'}
+{'loss': '3.921', 'grad_norm': '0.2144', 'learning_rate': '3.7e-08', 'epoch': '0.41'}
+{'loss': '4.012', 'grad_norm': '0.2198', 'learning_rate': '3.687e-08', 'epoch': '0.412'}
+{'loss': '4.298', 'grad_norm': '0.2363', 'learning_rate': '3.675e-08', 'epoch': '0.414'}
+{'loss': '4.224', 'grad_norm': '0.2514', 'learning_rate': '3.662e-08', 'epoch': '0.416'}
+{'loss': '4.324', 'grad_norm': '0.2205', 'learning_rate': '3.65e-08', 'epoch': '0.418'}
+{'loss': '4.328', 'grad_norm': '0.22', 'learning_rate': '3.637e-08', 'epoch': '0.42'}
+{'loss': '4.111', 'grad_norm': '0.2094', 'learning_rate': '3.625e-08', 'epoch': '0.422'}
+{'loss': '4.35', 'grad_norm': '0.233', 'learning_rate': '3.613e-08', 'epoch': '0.424'}
+{'loss': '4.333', 'grad_norm': '0.2196', 'learning_rate': '3.6e-08', 'epoch': '0.426'}
+{'loss': '4.397', 'grad_norm': '0.249', 'learning_rate': '3.588e-08', 'epoch': '0.428'}
+{'loss': '4.088', 'grad_norm': '0.2074', 'learning_rate': '3.575e-08', 'epoch': '0.43'}
+{'loss': '4.065', 'grad_norm': '0.1961', 'learning_rate': '3.562e-08', 'epoch': '0.432'}
+{'loss': '4.335', 'grad_norm': '0.2299', 'learning_rate': '3.55e-08', 'epoch': '0.434'}
+{'loss': '4.405', 'grad_norm': '0.2373', 'learning_rate': '3.537e-08', 'epoch': '0.436'}
+{'loss': '4.299', 'grad_norm': '0.2446', 'learning_rate': '3.525e-08', 'epoch': '0.438'}
+{'loss': '4.106', 'grad_norm': '0.2309', 'learning_rate': '3.512e-08', 'epoch': '0.44'}
+{'loss': '4.264', 'grad_norm': '0.2422', 'learning_rate': '3.5e-08', 'epoch': '0.442'}
+{'loss': '4.391', 'grad_norm': '0.2308', 'learning_rate': '3.487e-08', 'epoch': '0.444'}
+{'loss': '4.5', 'grad_norm': '0.2505', 'learning_rate': '3.475e-08', 'epoch': '0.446'}
+{'loss': '4.181', 'grad_norm': '0.2032', 'learning_rate': '3.463e-08', 'epoch': '0.448'}
+{'loss': '4.019', 'grad_norm': '0.2257', 'learning_rate': '3.45e-08', 'epoch': '0.45'}
+{'loss': '3.952', 'grad_norm': '0.2161', 'learning_rate': '3.438e-08', 'epoch': '0.452'}
+{'loss': '4.323', 'grad_norm': '0.2625', 'learning_rate': '3.425e-08', 'epoch': '0.454'}
+{'loss': '4.474', 'grad_norm': '0.2752', 'learning_rate': '3.412e-08', 'epoch': '0.456'}
+{'loss': '4.077', 'grad_norm': '0.206', 'learning_rate': '3.4e-08', 'epoch': '0.458'}
+{'loss': '4.232', 'grad_norm': '0.2096', 'learning_rate': '3.387e-08', 'epoch': '0.46'}
+{'loss': '4.294', 'grad_norm': '0.2307', 'learning_rate': '3.375e-08', 'epoch': '0.462'}
+{'loss': '4.149', 'grad_norm': '0.2408', 'learning_rate': '3.362e-08', 'epoch': '0.464'}
+{'loss': '4.253', 'grad_norm': '0.2342', 'learning_rate': '3.35e-08', 'epoch': '0.466'}
+{'loss': '4.217', 'grad_norm': '0.2184', 'learning_rate': '3.337e-08', 'epoch': '0.468'}
+{'loss': '4.234', 'grad_norm': '0.2171', 'learning_rate': '3.325e-08', 'epoch': '0.47'}
+{'loss': '3.993', 'grad_norm': '0.2317', 'learning_rate': '3.313e-08', 'epoch': '0.472'}
+{'loss': '4.041', 'grad_norm': '0.2067', 'learning_rate': '3.3e-08', 'epoch': '0.474'}
+{'loss': '4.313', 'grad_norm': '0.266', 'learning_rate': '3.287e-08', 'epoch': '0.476'}
+{'loss': '4.232', 'grad_norm': '0.2442', 'learning_rate': '3.275e-08', 'epoch': '0.478'}
+{'loss': '3.993', 'grad_norm': '0.2141', 'learning_rate': '3.262e-08', 'epoch': '0.48'}
+{'loss': '4.163', 'grad_norm': '0.2287', 'learning_rate': '3.25e-08', 'epoch': '0.482'}
+{'loss': '3.854', 'grad_norm': '0.2108', 'learning_rate': '3.237e-08', 'epoch': '0.484'}
+{'loss': '4.103', 'grad_norm': '0.2409', 'learning_rate': '3.225e-08', 'epoch': '0.486'}
+{'loss': '4.369', 'grad_norm': '0.2353', 'learning_rate': '3.212e-08', 'epoch': '0.488'}
+{'loss': '4.222', 'grad_norm': '0.2281', 'learning_rate': '3.2e-08', 'epoch': '0.49'}
+{'loss': '4.214', 'grad_norm': '0.2354', 'learning_rate': '3.187e-08', 'epoch': '0.492'}
+{'loss': '4.245', 'grad_norm': '0.243', 'learning_rate': '3.175e-08', 'epoch': '0.494'}
+{'loss': '4.457', 'grad_norm': '0.2414', 'learning_rate': '3.162e-08', 'epoch': '0.496'}
+{'loss': '4.352', 'grad_norm': '0.2117', 'learning_rate': '3.15e-08', 'epoch': '0.498'}
+{'loss': '4.542', 'grad_norm': '0.267', 'learning_rate': '3.137e-08', 'epoch': '0.5'}
+2026-02-26 14:27:20,160 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.277', 'eval_runtime': '242', 'eval_samples_per_second': '4.132', 'eval_steps_per_second': '4.132', 'epoch': '0.5'}
+2026-02-26 14:27:20,388 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:27:20,400 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.619', 'grad_norm': '0.2638', 'learning_rate': '3.125e-08', 'epoch': '0.502'}
+{'loss': '4.206', 'grad_norm': '0.2223', 'learning_rate': '3.113e-08', 'epoch': '0.504'}
+{'loss': '4.492', 'grad_norm': '0.2351', 'learning_rate': '3.1e-08', 'epoch': '0.506'}
+{'loss': '4.083', 'grad_norm': '0.2093', 'learning_rate': '3.088e-08', 'epoch': '0.508'}
+{'loss': '4.265', 'grad_norm': '0.2738', 'learning_rate': '3.075e-08', 'epoch': '0.51'}
+{'loss': '3.971', 'grad_norm': '0.1962', 'learning_rate': '3.062e-08', 'epoch': '0.512'}
+{'loss': '4.486', 'grad_norm': '0.2496', 'learning_rate': '3.05e-08', 'epoch': '0.514'}
+{'loss': '3.985', 'grad_norm': '0.2173', 'learning_rate': '3.037e-08', 'epoch': '0.516'}
+{'loss': '4.161', 'grad_norm': '0.2264', 'learning_rate': '3.025e-08', 'epoch': '0.518'}
+{'loss': '4.117', 'grad_norm': '0.234', 'learning_rate': '3.013e-08', 'epoch': '0.52'}
+{'loss': '4.419', 'grad_norm': '0.2494', 'learning_rate': '3e-08', 'epoch': '0.522'}
+{'loss': '4.66', 'grad_norm': '0.2967', 'learning_rate': '2.988e-08', 'epoch': '0.524'}
+{'loss': '4.133', 'grad_norm': '0.24', 'learning_rate': '2.975e-08', 'epoch': '0.526'}
+{'loss': '4.275', 'grad_norm': '0.2251', 'learning_rate': '2.962e-08', 'epoch': '0.528'}
+{'loss': '4.32', 'grad_norm': '0.2248', 'learning_rate': '2.95e-08', 'epoch': '0.53'}
+{'loss': '4.305', 'grad_norm': '0.221', 'learning_rate': '2.937e-08', 'epoch': '0.532'}
+{'loss': '3.948', 'grad_norm': '0.2081', 'learning_rate': '2.925e-08', 'epoch': '0.534'}
+{'loss': '4.24', 'grad_norm': '0.2386', 'learning_rate': '2.913e-08', 'epoch': '0.536'}
+{'loss': '4', 'grad_norm': '0.2152', 'learning_rate': '2.9e-08', 'epoch': '0.538'}
+{'loss': '4.018', 'grad_norm': '0.1972', 'learning_rate': '2.887e-08', 'epoch': '0.54'}
+{'loss': '4.408', 'grad_norm': '0.2432', 'learning_rate': '2.875e-08', 'epoch': '0.542'}
+{'loss': '4.176', 'grad_norm': '0.2454', 'learning_rate': '2.862e-08', 'epoch': '0.544'}
+{'loss': '4.232', 'grad_norm': '0.2194', 'learning_rate': '2.85e-08', 'epoch': '0.546'}
+{'loss': '3.995', 'grad_norm': '0.22', 'learning_rate': '2.837e-08', 'epoch': '0.548'}
+{'loss': '4.101', 'grad_norm': '0.2151', 'learning_rate': '2.825e-08', 'epoch': '0.55'}
+{'loss': '4.174', 'grad_norm': '0.2258', 'learning_rate': '2.812e-08', 'epoch': '0.552'}
+{'loss': '3.957', 'grad_norm': '0.2193', 'learning_rate': '2.8e-08', 'epoch': '0.554'}
+{'loss': '4.272', 'grad_norm': '0.2555', 'learning_rate': '2.787e-08', 'epoch': '0.556'}
+{'loss': '4.105', 'grad_norm': '0.2298', 'learning_rate': '2.775e-08', 'epoch': '0.558'}
+{'loss': '3.988', 'grad_norm': '0.2193', 'learning_rate': '2.762e-08', 'epoch': '0.56'}
+{'loss': '4.589', 'grad_norm': '0.2789', 'learning_rate': '2.75e-08', 'epoch': '0.562'}
+{'loss': '4.046', 'grad_norm': '0.2254', 'learning_rate': '2.737e-08', 'epoch': '0.564'}
+{'loss': '4.323', 'grad_norm': '0.2075', 'learning_rate': '2.725e-08', 'epoch': '0.566'}
+{'loss': '4.041', 'grad_norm': '0.2015', 'learning_rate': '2.712e-08', 'epoch': '0.568'}
+{'loss': '4.268', 'grad_norm': '0.2189', 'learning_rate': '2.7e-08', 'epoch': '0.57'}
+{'loss': '4.553', 'grad_norm': '0.2702', 'learning_rate': '2.687e-08', 'epoch': '0.572'}
+{'loss': '4.028', 'grad_norm': '0.2255', 'learning_rate': '2.675e-08', 'epoch': '0.574'}
+{'loss': '4.504', 'grad_norm': '0.261', 'learning_rate': '2.662e-08', 'epoch': '0.576'}
+{'loss': '4.108', 'grad_norm': '0.2526', 'learning_rate': '2.65e-08', 'epoch': '0.578'}
+{'loss': '4.448', 'grad_norm': '0.2698', 'learning_rate': '2.637e-08', 'epoch': '0.58'}
+{'loss': '4.387', 'grad_norm': '0.2318', 'learning_rate': '2.625e-08', 'epoch': '0.582'}
+{'loss': '4.226', 'grad_norm': '0.2087', 'learning_rate': '2.612e-08', 'epoch': '0.584'}
+{'loss': '4.581', 'grad_norm': '0.2449', 'learning_rate': '2.6e-08', 'epoch': '0.586'}
+{'loss': '4.014', 'grad_norm': '0.2102', 'learning_rate': '2.587e-08', 'epoch': '0.588'}
+{'loss': '3.972', 'grad_norm': '0.2094', 'learning_rate': '2.575e-08', 'epoch': '0.59'}
+{'loss': '4.264', 'grad_norm': '0.219', 'learning_rate': '2.562e-08', 'epoch': '0.592'}
+{'loss': '4.024', 'grad_norm': '0.22', 'learning_rate': '2.55e-08', 'epoch': '0.594'}
+{'loss': '4.106', 'grad_norm': '0.2276', 'learning_rate': '2.537e-08', 'epoch': '0.596'}
+{'loss': '4.164', 'grad_norm': '0.2234', 'learning_rate': '2.525e-08', 'epoch': '0.598'}
+==================================================
+2026-02-26 14:34:03,592 - INFO - Training Progress - Step 300
+2026-02-26 14:34:03,592 - INFO - Loss: 4.164031982421875
+2026-02-26 14:34:03,592 - INFO - Input text: 선알미늄 전부 현재가로 담아...
+2026-02-26 14:34:03,592 - INFO - True label: {"action": "BUY", "ticker": "008350", "name": "선알미늄", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 14:34:03,592 - INFO - Model prediction: 은 이 �
+2026-02-26 14:34:03,593 - INFO - ==================================================
+ 60%|████████████████████████                | 300/500 [1:04:14<26:45,  8.03s/it]2026-02-26 14:38:11,719 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.413', 'grad_norm': '0.2219', 'learning_rate': '2.512e-08', 'epoch': '0.6'}
+2026-02-26 14:38:11,729 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.274', 'eval_runtime': '247.8', 'eval_samples_per_second': '4.035', 'eval_steps_per_second': '4.035', 'epoch': '0.6'}
+2026-02-26 14:38:11,952 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:38:11,963 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.217', 'grad_norm': '0.24', 'learning_rate': '2.5e-08', 'epoch': '0.602'}
+{'loss': '4.319', 'grad_norm': '0.2335', 'learning_rate': '2.487e-08', 'epoch': '0.604'}
+{'loss': '4.047', 'grad_norm': '0.2058', 'learning_rate': '2.475e-08', 'epoch': '0.606'}
+{'loss': '4.134', 'grad_norm': '0.2319', 'learning_rate': '2.462e-08', 'epoch': '0.608'}
+{'loss': '4.414', 'grad_norm': '0.2275', 'learning_rate': '2.45e-08', 'epoch': '0.61'}
+{'loss': '4.219', 'grad_norm': '0.2196', 'learning_rate': '2.437e-08', 'epoch': '0.612'}
+{'loss': '4.385', 'grad_norm': '0.2041', 'learning_rate': '2.425e-08', 'epoch': '0.614'}
+{'loss': '4.122', 'grad_norm': '0.2222', 'learning_rate': '2.412e-08', 'epoch': '0.616'}
+{'loss': '4.222', 'grad_norm': '0.225', 'learning_rate': '2.4e-08', 'epoch': '0.618'}
+{'loss': '4.282', 'grad_norm': '0.2483', 'learning_rate': '2.387e-08', 'epoch': '0.62'}
+{'loss': '4.42', 'grad_norm': '0.2383', 'learning_rate': '2.375e-08', 'epoch': '0.622'}
+{'loss': '4.309', 'grad_norm': '0.219', 'learning_rate': '2.362e-08', 'epoch': '0.624'}
+{'loss': '4.176', 'grad_norm': '0.2491', 'learning_rate': '2.35e-08', 'epoch': '0.626'}
+{'loss': '4.035', 'grad_norm': '0.2292', 'learning_rate': '2.337e-08', 'epoch': '0.628'}
+{'loss': '4.305', 'grad_norm': '0.2311', 'learning_rate': '2.325e-08', 'epoch': '0.63'}
+{'loss': '4.141', 'grad_norm': '0.2248', 'learning_rate': '2.313e-08', 'epoch': '0.632'}
+{'loss': '4.141', 'grad_norm': '0.2227', 'learning_rate': '2.3e-08', 'epoch': '0.634'}
+{'loss': '4.595', 'grad_norm': '0.2753', 'learning_rate': '2.288e-08', 'epoch': '0.636'}
+{'loss': '4.235', 'grad_norm': '0.2374', 'learning_rate': '2.275e-08', 'epoch': '0.638'}
+{'loss': '4.297', 'grad_norm': '0.2454', 'learning_rate': '2.262e-08', 'epoch': '0.64'}
+{'loss': '4.389', 'grad_norm': '0.2303', 'learning_rate': '2.25e-08', 'epoch': '0.642'}
+{'loss': '4.09', 'grad_norm': '0.2204', 'learning_rate': '2.238e-08', 'epoch': '0.644'}
+{'loss': '4.553', 'grad_norm': '0.2568', 'learning_rate': '2.225e-08', 'epoch': '0.646'}
+{'loss': '3.892', 'grad_norm': '0.2019', 'learning_rate': '2.212e-08', 'epoch': '0.648'}
+{'loss': '4.075', 'grad_norm': '0.2598', 'learning_rate': '2.2e-08', 'epoch': '0.65'}
+{'loss': '4.298', 'grad_norm': '0.2246', 'learning_rate': '2.187e-08', 'epoch': '0.652'}
+{'loss': '4.074', 'grad_norm': '0.2209', 'learning_rate': '2.175e-08', 'epoch': '0.654'}
+{'loss': '4.349', 'grad_norm': '0.2552', 'learning_rate': '2.163e-08', 'epoch': '0.656'}
+{'loss': '4.129', 'grad_norm': '0.2162', 'learning_rate': '2.15e-08', 'epoch': '0.658'}
+{'loss': '4.056', 'grad_norm': '0.2182', 'learning_rate': '2.137e-08', 'epoch': '0.66'}
+{'loss': '4.539', 'grad_norm': '0.2395', 'learning_rate': '2.125e-08', 'epoch': '0.662'}
+{'loss': '4.099', 'grad_norm': '0.2069', 'learning_rate': '2.112e-08', 'epoch': '0.664'}
+{'loss': '4.561', 'grad_norm': '0.2483', 'learning_rate': '2.1e-08', 'epoch': '0.666'}
+{'loss': '4.272', 'grad_norm': '0.2498', 'learning_rate': '2.087e-08', 'epoch': '0.668'}
+{'loss': '4.352', 'grad_norm': '0.2508', 'learning_rate': '2.075e-08', 'epoch': '0.67'}
+{'loss': '4.215', 'grad_norm': '0.2179', 'learning_rate': '2.062e-08', 'epoch': '0.672'}
+{'loss': '4.219', 'grad_norm': '0.2283', 'learning_rate': '2.05e-08', 'epoch': '0.674'}
+{'loss': '3.897', 'grad_norm': '0.2249', 'learning_rate': '2.037e-08', 'epoch': '0.676'}
+{'loss': '4.205', 'grad_norm': '0.2387', 'learning_rate': '2.025e-08', 'epoch': '0.678'}
+{'loss': '4.142', 'grad_norm': '0.205', 'learning_rate': '2.012e-08', 'epoch': '0.68'}
+{'loss': '4.334', 'grad_norm': '0.2412', 'learning_rate': '2e-08', 'epoch': '0.682'}
+{'loss': '4.158', 'grad_norm': '0.2248', 'learning_rate': '1.988e-08', 'epoch': '0.684'}
+{'loss': '4.295', 'grad_norm': '0.2215', 'learning_rate': '1.975e-08', 'epoch': '0.686'}
+{'loss': '4.224', 'grad_norm': '0.2465', 'learning_rate': '1.962e-08', 'epoch': '0.688'}
+{'loss': '3.932', 'grad_norm': '0.2086', 'learning_rate': '1.95e-08', 'epoch': '0.69'}
+{'loss': '4.015', 'grad_norm': '0.21', 'learning_rate': '1.937e-08', 'epoch': '0.692'}
+{'loss': '4.174', 'grad_norm': '0.2258', 'learning_rate': '1.925e-08', 'epoch': '0.694'}
+{'loss': '4.27', 'grad_norm': '0.2364', 'learning_rate': '1.913e-08', 'epoch': '0.696'}
+{'loss': '4.501', 'grad_norm': '0.2474', 'learning_rate': '1.9e-08', 'epoch': '0.698'}
+{'loss': '4.31', 'grad_norm': '0.2022', 'learning_rate': '1.887e-08', 'epoch': '0.7'}
+2026-02-26 14:49:01,338 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.274', 'eval_runtime': '247.4', 'eval_samples_per_second': '4.042', 'eval_steps_per_second': '4.042', 'epoch': '0.7'}
+2026-02-26 14:49:01,538 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:49:01,549 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.365', 'grad_norm': '0.2475', 'learning_rate': '1.875e-08', 'epoch': '0.702'}
+{'loss': '4.164', 'grad_norm': '0.2066', 'learning_rate': '1.862e-08', 'epoch': '0.704'}
+{'loss': '4.522', 'grad_norm': '0.2638', 'learning_rate': '1.85e-08', 'epoch': '0.706'}
+{'loss': '4.251', 'grad_norm': '0.2467', 'learning_rate': '1.837e-08', 'epoch': '0.708'}
+{'loss': '3.896', 'grad_norm': '0.2207', 'learning_rate': '1.825e-08', 'epoch': '0.71'}
+{'loss': '4.463', 'grad_norm': '0.2234', 'learning_rate': '1.812e-08', 'epoch': '0.712'}
+{'loss': '4.509', 'grad_norm': '0.239', 'learning_rate': '1.8e-08', 'epoch': '0.714'}
+{'loss': '4.226', 'grad_norm': '0.2135', 'learning_rate': '1.787e-08', 'epoch': '0.716'}
+{'loss': '4.079', 'grad_norm': '0.2145', 'learning_rate': '1.775e-08', 'epoch': '0.718'}
+{'loss': '4.187', 'grad_norm': '0.2102', 'learning_rate': '1.762e-08', 'epoch': '0.72'}
+{'loss': '4.305', 'grad_norm': '0.2333', 'learning_rate': '1.75e-08', 'epoch': '0.722'}
+{'loss': '3.89', 'grad_norm': '0.2115', 'learning_rate': '1.737e-08', 'epoch': '0.724'}
+{'loss': '4.395', 'grad_norm': '0.2291', 'learning_rate': '1.725e-08', 'epoch': '0.726'}
+{'loss': '4.296', 'grad_norm': '0.2511', 'learning_rate': '1.712e-08', 'epoch': '0.728'}
+{'loss': '4.537', 'grad_norm': '0.272', 'learning_rate': '1.7e-08', 'epoch': '0.73'}
+{'loss': '4.247', 'grad_norm': '0.2363', 'learning_rate': '1.688e-08', 'epoch': '0.732'}
+{'loss': '4.209', 'grad_norm': '0.2235', 'learning_rate': '1.675e-08', 'epoch': '0.734'}
+{'loss': '4.217', 'grad_norm': '0.2165', 'learning_rate': '1.663e-08', 'epoch': '0.736'}
+{'loss': '3.793', 'grad_norm': '0.1982', 'learning_rate': '1.65e-08', 'epoch': '0.738'}
+{'loss': '4.394', 'grad_norm': '0.2112', 'learning_rate': '1.637e-08', 'epoch': '0.74'}
+{'loss': '4.087', 'grad_norm': '0.2133', 'learning_rate': '1.625e-08', 'epoch': '0.742'}
+{'loss': '4.322', 'grad_norm': '0.2036', 'learning_rate': '1.613e-08', 'epoch': '0.744'}
+{'loss': '4.145', 'grad_norm': '0.2213', 'learning_rate': '1.6e-08', 'epoch': '0.746'}
+{'loss': '3.997', 'grad_norm': '0.2201', 'learning_rate': '1.587e-08', 'epoch': '0.748'}
+{'loss': '4.354', 'grad_norm': '0.2441', 'learning_rate': '1.575e-08', 'epoch': '0.75'}
+{'loss': '4.037', 'grad_norm': '0.207', 'learning_rate': '1.562e-08', 'epoch': '0.752'}
+{'loss': '4.208', 'grad_norm': '0.2173', 'learning_rate': '1.55e-08', 'epoch': '0.754'}
+{'loss': '4.285', 'grad_norm': '0.2163', 'learning_rate': '1.538e-08', 'epoch': '0.756'}
+{'loss': '4.309', 'grad_norm': '0.2423', 'learning_rate': '1.525e-08', 'epoch': '0.758'}
+{'loss': '4.246', 'grad_norm': '0.2186', 'learning_rate': '1.512e-08', 'epoch': '0.76'}
+{'loss': '3.972', 'grad_norm': '0.2034', 'learning_rate': '1.5e-08', 'epoch': '0.762'}
+{'loss': '4.184', 'grad_norm': '0.2425', 'learning_rate': '1.487e-08', 'epoch': '0.764'}
+{'loss': '4.483', 'grad_norm': '0.2424', 'learning_rate': '1.475e-08', 'epoch': '0.766'}
+{'loss': '4.495', 'grad_norm': '0.2701', 'learning_rate': '1.462e-08', 'epoch': '0.768'}
+{'loss': '4.177', 'grad_norm': '0.2135', 'learning_rate': '1.45e-08', 'epoch': '0.77'}
+{'loss': '4.266', 'grad_norm': '0.2251', 'learning_rate': '1.437e-08', 'epoch': '0.772'}
+{'loss': '3.997', 'grad_norm': '0.2225', 'learning_rate': '1.425e-08', 'epoch': '0.774'}
+{'loss': '4.017', 'grad_norm': '0.2351', 'learning_rate': '1.412e-08', 'epoch': '0.776'}
+{'loss': '4.413', 'grad_norm': '0.2512', 'learning_rate': '1.4e-08', 'epoch': '0.778'}
+{'loss': '4.319', 'grad_norm': '0.2488', 'learning_rate': '1.388e-08', 'epoch': '0.78'}
+{'loss': '4.199', 'grad_norm': '0.2075', 'learning_rate': '1.375e-08', 'epoch': '0.782'}
+{'loss': '4.212', 'grad_norm': '0.221', 'learning_rate': '1.362e-08', 'epoch': '0.784'}
+{'loss': '4.446', 'grad_norm': '0.2318', 'learning_rate': '1.35e-08', 'epoch': '0.786'}
+{'loss': '4.152', 'grad_norm': '0.2385', 'learning_rate': '1.338e-08', 'epoch': '0.788'}
+{'loss': '4.121', 'grad_norm': '0.209', 'learning_rate': '1.325e-08', 'epoch': '0.79'}
+{'loss': '4.132', 'grad_norm': '0.2014', 'learning_rate': '1.313e-08', 'epoch': '0.792'}
+{'loss': '3.882', 'grad_norm': '0.2076', 'learning_rate': '1.3e-08', 'epoch': '0.794'}
+{'loss': '4.512', 'grad_norm': '0.2586', 'learning_rate': '1.287e-08', 'epoch': '0.796'}
+{'loss': '4.458', 'grad_norm': '0.2404', 'learning_rate': '1.275e-08', 'epoch': '0.798'}
+==================================================
+2026-02-26 14:55:42,558 - INFO - Training Progress - Step 400
+2026-02-26 14:55:42,559 - INFO - Loss: 4.458318710327148
+2026-02-26 14:55:42,559 - INFO - Input text: 그레 전부 손절해...
+2026-02-26 14:55:42,559 - INFO - True label: {"action": "SELL", "ticker": "005180", "name": "그레", "qty": "MAX"}
+2026-02-26 14:55:42,559 - INFO - Model prediction:  목록은
+2026-02-26 14:55:42,559 - INFO - ==================================================
+ 80%|████████████████████████████████        | 400/500 [1:25:53<14:23,  8.64s/it]2026-02-26 14:59:50,508 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.008', 'grad_norm': '0.2098', 'learning_rate': '1.262e-08', 'epoch': '0.8'}
+2026-02-26 14:59:50,519 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.272', 'eval_runtime': '247.7', 'eval_samples_per_second': '4.038', 'eval_steps_per_second': '4.038', 'epoch': '0.8'}
+2026-02-26 14:59:50,721 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 14:59:50,731 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.154', 'grad_norm': '0.1951', 'learning_rate': '1.25e-08', 'epoch': '0.802'}
+{'loss': '4.358', 'grad_norm': '0.2451', 'learning_rate': '1.237e-08', 'epoch': '0.804'}
+{'loss': '4.235', 'grad_norm': '0.2182', 'learning_rate': '1.225e-08', 'epoch': '0.806'}
+{'loss': '4.223', 'grad_norm': '0.256', 'learning_rate': '1.212e-08', 'epoch': '0.808'}
+{'loss': '4.195', 'grad_norm': '0.2213', 'learning_rate': '1.2e-08', 'epoch': '0.81'}
+{'loss': '3.975', 'grad_norm': '0.214', 'learning_rate': '1.187e-08', 'epoch': '0.812'}
+{'loss': '4.412', 'grad_norm': '0.2212', 'learning_rate': '1.175e-08', 'epoch': '0.814'}
+{'loss': '4.34', 'grad_norm': '0.2631', 'learning_rate': '1.162e-08', 'epoch': '0.816'}
+{'loss': '4.064', 'grad_norm': '0.1974', 'learning_rate': '1.15e-08', 'epoch': '0.818'}
+{'loss': '4.151', 'grad_norm': '0.2299', 'learning_rate': '1.137e-08', 'epoch': '0.82'}
+{'loss': '4.105', 'grad_norm': '0.2316', 'learning_rate': '1.125e-08', 'epoch': '0.822'}
+{'loss': '4.427', 'grad_norm': '0.2334', 'learning_rate': '1.113e-08', 'epoch': '0.824'}
+{'loss': '3.997', 'grad_norm': '0.2029', 'learning_rate': '1.1e-08', 'epoch': '0.826'}
+{'loss': '4.224', 'grad_norm': '0.2153', 'learning_rate': '1.087e-08', 'epoch': '0.828'}
+{'loss': '4.361', 'grad_norm': '0.2584', 'learning_rate': '1.075e-08', 'epoch': '0.83'}
+{'loss': '4.08', 'grad_norm': '0.2057', 'learning_rate': '1.062e-08', 'epoch': '0.832'}
+{'loss': '4.315', 'grad_norm': '0.2744', 'learning_rate': '1.05e-08', 'epoch': '0.834'}
+{'loss': '3.65', 'grad_norm': '0.2074', 'learning_rate': '1.037e-08', 'epoch': '0.836'}
+{'loss': '4.37', 'grad_norm': '0.2565', 'learning_rate': '1.025e-08', 'epoch': '0.838'}
+{'loss': '4.286', 'grad_norm': '0.2207', 'learning_rate': '1.012e-08', 'epoch': '0.84'}
+{'loss': '4.523', 'grad_norm': '0.2468', 'learning_rate': '1e-08', 'epoch': '0.842'}
+{'loss': '4.097', 'grad_norm': '0.2588', 'learning_rate': '9.875e-09', 'epoch': '0.844'}
+{'loss': '3.971', 'grad_norm': '0.2192', 'learning_rate': '9.75e-09', 'epoch': '0.846'}
+{'loss': '4.261', 'grad_norm': '0.2077', 'learning_rate': '9.625e-09', 'epoch': '0.848'}
+{'loss': '4.048', 'grad_norm': '0.2036', 'learning_rate': '9.5e-09', 'epoch': '0.85'}
+{'loss': '4.01', 'grad_norm': '0.2287', 'learning_rate': '9.375e-09', 'epoch': '0.852'}
+{'loss': '4.322', 'grad_norm': '0.2473', 'learning_rate': '9.25e-09', 'epoch': '0.854'}
+{'loss': '4.198', 'grad_norm': '0.2359', 'learning_rate': '9.125e-09', 'epoch': '0.856'}
+{'loss': '4.149', 'grad_norm': '0.2087', 'learning_rate': '9e-09', 'epoch': '0.858'}
+{'loss': '4.173', 'grad_norm': '0.2128', 'learning_rate': '8.875e-09', 'epoch': '0.86'}
+{'loss': '4.137', 'grad_norm': '0.2158', 'learning_rate': '8.75e-09', 'epoch': '0.862'}
+{'loss': '4.145', 'grad_norm': '0.2246', 'learning_rate': '8.625e-09', 'epoch': '0.864'}
+{'loss': '4.181', 'grad_norm': '0.2327', 'learning_rate': '8.5e-09', 'epoch': '0.866'}
+{'loss': '4.093', 'grad_norm': '0.2369', 'learning_rate': '8.375e-09', 'epoch': '0.868'}
+{'loss': '3.898', 'grad_norm': '0.2286', 'learning_rate': '8.25e-09', 'epoch': '0.87'}
+{'loss': '4.141', 'grad_norm': '0.2047', 'learning_rate': '8.125e-09', 'epoch': '0.872'}
+{'loss': '4.097', 'grad_norm': '0.2203', 'learning_rate': '8e-09', 'epoch': '0.874'}
+{'loss': '4.057', 'grad_norm': '0.2366', 'learning_rate': '7.875e-09', 'epoch': '0.876'}
+{'loss': '4.31', 'grad_norm': '0.2364', 'learning_rate': '7.75e-09', 'epoch': '0.878'}
+{'loss': '3.858', 'grad_norm': '0.1974', 'learning_rate': '7.625e-09', 'epoch': '0.88'}
+{'loss': '4.115', 'grad_norm': '0.2341', 'learning_rate': '7.5e-09', 'epoch': '0.882'}
+{'loss': '4.453', 'grad_norm': '0.2324', 'learning_rate': '7.375e-09', 'epoch': '0.884'}
+{'loss': '3.941', 'grad_norm': '0.2032', 'learning_rate': '7.25e-09', 'epoch': '0.886'}
+{'loss': '4.017', 'grad_norm': '0.2314', 'learning_rate': '7.125e-09', 'epoch': '0.888'}
+{'loss': '4.022', 'grad_norm': '0.2065', 'learning_rate': '7e-09', 'epoch': '0.89'}
+{'loss': '4.289', 'grad_norm': '0.2448', 'learning_rate': '6.875e-09', 'epoch': '0.892'}
+{'loss': '4.149', 'grad_norm': '0.216', 'learning_rate': '6.75e-09', 'epoch': '0.894'}
+{'loss': '4.425', 'grad_norm': '0.2537', 'learning_rate': '6.625e-09', 'epoch': '0.896'}
+{'loss': '4.303', 'grad_norm': '0.2208', 'learning_rate': '6.5e-09', 'epoch': '0.898'}
+{'loss': '3.919', 'grad_norm': '0.2329', 'learning_rate': '6.375e-09', 'epoch': '0.9'}
+2026-02-26 15:10:42,160 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.27', 'eval_runtime': '249.4', 'eval_samples_per_second': '4.009', 'eval_steps_per_second': '4.009', 'epoch': '0.9'}
+2026-02-26 15:10:42,379 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 15:10:42,389 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+                                                                                 
+{'loss': '4.14', 'grad_norm': '0.2188', 'learning_rate': '6.25e-09', 'epoch': '0.902'}
+{'loss': '4.468', 'grad_norm': '0.2348', 'learning_rate': '6.125e-09', 'epoch': '0.904'}
+{'loss': '4.193', 'grad_norm': '0.2409', 'learning_rate': '6e-09', 'epoch': '0.906'}
+{'loss': '3.91', 'grad_norm': '0.2064', 'learning_rate': '5.875e-09', 'epoch': '0.908'}
+{'loss': '4.452', 'grad_norm': '0.2537', 'learning_rate': '5.75e-09', 'epoch': '0.91'}
+{'loss': '3.961', 'grad_norm': '0.2149', 'learning_rate': '5.625e-09', 'epoch': '0.912'}
+{'loss': '4.14', 'grad_norm': '0.2254', 'learning_rate': '5.5e-09', 'epoch': '0.914'}
+{'loss': '4.156', 'grad_norm': '0.2119', 'learning_rate': '5.375e-09', 'epoch': '0.916'}
+{'loss': '4.148', 'grad_norm': '0.2416', 'learning_rate': '5.25e-09', 'epoch': '0.918'}
+{'loss': '4.309', 'grad_norm': '0.2485', 'learning_rate': '5.125e-09', 'epoch': '0.92'}
+{'loss': '4.085', 'grad_norm': '0.2121', 'learning_rate': '5e-09', 'epoch': '0.922'}
+{'loss': '4.28', 'grad_norm': '0.2103', 'learning_rate': '4.875e-09', 'epoch': '0.924'}
+{'loss': '4.114', 'grad_norm': '0.2129', 'learning_rate': '4.75e-09', 'epoch': '0.926'}
+{'loss': '4.46', 'grad_norm': '0.2365', 'learning_rate': '4.625e-09', 'epoch': '0.928'}
+{'loss': '4.167', 'grad_norm': '0.214', 'learning_rate': '4.5e-09', 'epoch': '0.93'}
+{'loss': '4.146', 'grad_norm': '0.2176', 'learning_rate': '4.375e-09', 'epoch': '0.932'}
+{'loss': '3.935', 'grad_norm': '0.2118', 'learning_rate': '4.25e-09', 'epoch': '0.934'}
+{'loss': '4.377', 'grad_norm': '0.2646', 'learning_rate': '4.125e-09', 'epoch': '0.936'}
+{'loss': '4.298', 'grad_norm': '0.2531', 'learning_rate': '4e-09', 'epoch': '0.938'}
+{'loss': '4.34', 'grad_norm': '0.2464', 'learning_rate': '3.875e-09', 'epoch': '0.94'}
+{'loss': '4.097', 'grad_norm': '0.212', 'learning_rate': '3.75e-09', 'epoch': '0.942'}
+{'loss': '3.847', 'grad_norm': '0.217', 'learning_rate': '3.625e-09', 'epoch': '0.944'}
+{'loss': '4.064', 'grad_norm': '0.2172', 'learning_rate': '3.5e-09', 'epoch': '0.946'}
+{'loss': '3.893', 'grad_norm': '0.2013', 'learning_rate': '3.375e-09', 'epoch': '0.948'}
+{'loss': '4.137', 'grad_norm': '0.1976', 'learning_rate': '3.25e-09', 'epoch': '0.95'}
+{'loss': '4.127', 'grad_norm': '0.2554', 'learning_rate': '3.125e-09', 'epoch': '0.952'}
+{'loss': '4.215', 'grad_norm': '0.2133', 'learning_rate': '3e-09', 'epoch': '0.954'}
+{'loss': '4.394', 'grad_norm': '0.246', 'learning_rate': '2.875e-09', 'epoch': '0.956'}
+{'loss': '4.204', 'grad_norm': '0.2424', 'learning_rate': '2.75e-09', 'epoch': '0.958'}
+{'loss': '4.202', 'grad_norm': '0.2622', 'learning_rate': '2.625e-09', 'epoch': '0.96'}
+{'loss': '4.136', 'grad_norm': '0.2229', 'learning_rate': '2.5e-09', 'epoch': '0.962'}
+{'loss': '4.224', 'grad_norm': '0.2168', 'learning_rate': '2.375e-09', 'epoch': '0.964'}
+{'loss': '4.065', 'grad_norm': '0.2286', 'learning_rate': '2.25e-09', 'epoch': '0.966'}
+{'loss': '4.053', 'grad_norm': '0.2056', 'learning_rate': '2.125e-09', 'epoch': '0.968'}
+{'loss': '4.516', 'grad_norm': '0.2434', 'learning_rate': '2e-09', 'epoch': '0.97'}
+{'loss': '4.277', 'grad_norm': '0.2251', 'learning_rate': '1.875e-09', 'epoch': '0.972'}
+{'loss': '4.551', 'grad_norm': '0.2791', 'learning_rate': '1.75e-09', 'epoch': '0.974'}
+{'loss': '4.146', 'grad_norm': '0.2329', 'learning_rate': '1.625e-09', 'epoch': '0.976'}
+{'loss': '4.21', 'grad_norm': '0.2219', 'learning_rate': '1.5e-09', 'epoch': '0.978'}
+{'loss': '4.224', 'grad_norm': '0.218', 'learning_rate': '1.375e-09', 'epoch': '0.98'}
+{'loss': '3.915', 'grad_norm': '0.2147', 'learning_rate': '1.25e-09', 'epoch': '0.982'}
+{'loss': '4.136', 'grad_norm': '0.228', 'learning_rate': '1.125e-09', 'epoch': '0.984'}
+{'loss': '4.263', 'grad_norm': '0.2406', 'learning_rate': '1e-09', 'epoch': '0.986'}
+{'loss': '4.55', 'grad_norm': '0.2272', 'learning_rate': '8.75e-10', 'epoch': '0.988'}
+{'loss': '4.284', 'grad_norm': '0.2447', 'learning_rate': '7.5e-10', 'epoch': '0.99'}
+{'loss': '4.135', 'grad_norm': '0.205', 'learning_rate': '6.25e-10', 'epoch': '0.992'}
+{'loss': '4.355', 'grad_norm': '0.2319', 'learning_rate': '5e-10', 'epoch': '0.994'}
+{'loss': '4.238', 'grad_norm': '0.2465', 'learning_rate': '3.75e-10', 'epoch': '0.996'}
+{'loss': '4.504', 'grad_norm': '0.2336', 'learning_rate': '2.5e-10', 'epoch': '0.998'}
+==================================================
+2026-02-26 15:17:20,099 - INFO - Training Progress - Step 500
+2026-02-26 15:17:20,100 - INFO - Loss: 4.504225730895996
+2026-02-26 15:17:20,100 - INFO - Input text: ODEX 모멘텀주 절반 익절해...
+2026-02-26 15:17:20,100 - INFO - True label: {"action": "SELL", "ticker": "275280", "name": "ODEX 모멘텀주", "qty": "MAX"}
+2026-02-26 15:17:20,100 - INFO - Model prediction: 을 위해 �
+2026-02-26 15:17:20,100 - INFO - ==================================================
+100%|████████████████████████████████████████| 500/500 [1:47:30<00:00,  7.73s/it]2026-02-26 15:21:27,818 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+{'loss': '4.27', 'grad_norm': '0.2187', 'learning_rate': '1.25e-10', 'epoch': '1'}
+2026-02-26 15:21:27,828 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+{'eval_loss': '4.272', 'eval_runtime': '247.4', 'eval_samples_per_second': '4.041', 'eval_steps_per_second': '4.041', 'epoch': '1'}
+2026-02-26 15:21:28,024 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-26 15:21:28,034 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
+100%|████████████████████████████████████████| 500/500 [1:47:34<00:00, 12.91s/it]
+{'train_runtime': '6456', 'train_samples_per_second': '0.62', 'train_steps_per_second': '0.077', 'train_loss': '4.215', 'epoch': '1'}
+2026-02-26 15:21:31,291 - INFO - Training completed!
+2026-02-26 15:21:31,291 - INFO - Saving model to Hugging Face Hub...
+Traceback (most recent call last):
+  File "/home/minia/voice-trader/qwen2.5-7b-fine-tuning/main.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/home/minia/voice-trader/qwen2.5-7b-fine-tuning/main.py", line 99, in main
+    model.push_to_hub(model_name, use_auth_token=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PushToHubMixin.push_to_hub() got an unexpected keyword argument 'use_auth_token'

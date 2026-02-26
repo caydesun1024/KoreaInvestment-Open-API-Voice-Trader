@@ -1,0 +1,137 @@
+  0%|                                                    | 0/500 [00:00<?, ?it/s]/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+  2%|▊                                           | 9/500 [01:05<58:48,  7.19s/it]2026-02-26 15:52:00,691 - INFO -
+{'loss': '4.083', 'grad_norm': '0.2333', 'learning_rate': '0', 'epoch': '0.002'}
+{'loss': '4.445', 'grad_norm': '0.2598', 'learning_rate': '5e-10', 'epoch': '0.004'}
+{'loss': '4.371', 'grad_norm': '0.2138', 'learning_rate': '1e-09', 'epoch': '0.006'}
+{'loss': '4.072', 'grad_norm': '0.2508', 'learning_rate': '1.5e-09', 'epoch': '0.008'}
+{'loss': '4.386', 'grad_norm': '0.2474', 'learning_rate': '2e-09', 'epoch': '0.01'}
+{'loss': '4.457', 'grad_norm': '0.2392', 'learning_rate': '2.5e-09', 'epoch': '0.012'}
+{'loss': '4.16', 'grad_norm': '0.2213', 'learning_rate': '3e-09', 'epoch': '0.014'}
+{'loss': '4.521', 'grad_norm': '0.2571', 'learning_rate': '3.5e-09', 'epoch': '0.016'}
+{'loss': '4.245', 'grad_norm': '0.2251', 'learning_rate': '4e-09', 'epoch': '0.018'}
+==================================================
+2026-02-26 15:52:00,691 - INFO - Training Progress - Step 10
+2026-02-26 15:52:00,692 - INFO - Loss: 4.244673728942871
+2026-02-26 15:52:00,692 - INFO - Input text: 지금 LUS 차이나AI테크TOP10 사 영끌...
+2026-02-26 15:52:00,692 - INFO - True label: {"action": "BUY", "ticker": "0047N0", "name": "LUS 차이나AI테크TOP10", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 15:52:00,693 - INFO - Model prediction: 은 매우 중요
+2026-02-26 15:52:00,693 - INFO - ==================================================
+  4%|█▌                                       | 19/500 [02:20<1:03:57,  7.98s/it]2026-02-26 15:53:13,075 - INFO -
+{'loss': '4.309', 'grad_norm': '0.2382', 'learning_rate': '4.5e-09', 'epoch': '0.02'}
+{'loss': '4.362', 'grad_norm': '0.2653', 'learning_rate': '5e-09', 'epoch': '0.022'}
+{'loss': '3.771', 'grad_norm': '0.2206', 'learning_rate': '5.5e-09', 'epoch': '0.024'}
+{'loss': '4.327', 'grad_norm': '0.2421', 'learning_rate': '6e-09', 'epoch': '0.026'}
+{'loss': '4.2', 'grad_norm': '0.2431', 'learning_rate': '6.5e-09', 'epoch': '0.028'}
+{'loss': '4.077', 'grad_norm': '0.2123', 'learning_rate': '7e-09', 'epoch': '0.03'}
+{'loss': '4.29', 'grad_norm': '0.2415', 'learning_rate': '7.5e-09', 'epoch': '0.032'}
+{'loss': '4.392', 'grad_norm': '0.2576', 'learning_rate': '8e-09', 'epoch': '0.034'}
+{'loss': '4.305', 'grad_norm': '0.2495', 'learning_rate': '8.5e-09', 'epoch': '0.036'}
+{'loss': '4.07', 'grad_norm': '0.2045', 'learning_rate': '9e-09', 'epoch': '0.038'}
+==================================================
+2026-02-26 15:53:13,075 - INFO - Training Progress - Step 20
+2026-02-26 15:53:13,075 - INFO - Loss: 4.069698333740234
+2026-02-26 15:53:13,076 - INFO - Input text: 익악기 전량 던져...
+2026-02-26 15:53:13,076 - INFO - True label: {"action": "SELL", "ticker": "002450", "name": "익악기", "qty": "MAX"}
+2026-02-26 15:53:13,076 - INFO - Model prediction: 이 성공
+2026-02-26 15:53:13,076 - INFO - ==================================================
+  6%|██▍                                      | 29/500 [03:33<1:00:41,  7.73s/it]2026-02-26 15:54:26,237 - INFO -
+{'loss': '3.879', 'grad_norm': '0.2276', 'learning_rate': '9.5e-09', 'epoch': '0.04'}
+{'loss': '4.322', 'grad_norm': '0.2151', 'learning_rate': '1e-08', 'epoch': '0.042'}
+{'loss': '4.296', 'grad_norm': '0.2382', 'learning_rate': '1.05e-08', 'epoch': '0.044'}
+{'loss': '4.141', 'grad_norm': '0.2446', 'learning_rate': '1.1e-08', 'epoch': '0.046'}
+{'loss': '3.924', 'grad_norm': '0.2296', 'learning_rate': '1.15e-08', 'epoch': '0.048'}
+{'loss': '4.29', 'grad_norm': '0.2388', 'learning_rate': '1.2e-08', 'epoch': '0.05'}
+{'loss': '4.165', 'grad_norm': '0.2284', 'learning_rate': '1.25e-08', 'epoch': '0.052'}
+{'loss': '4.303', 'grad_norm': '0.2635', 'learning_rate': '1.3e-08', 'epoch': '0.054'}
+{'loss': '4.184', 'grad_norm': '0.2335', 'learning_rate': '1.35e-08', 'epoch': '0.056'}
+{'loss': '4.159', 'grad_norm': '0.2376', 'learning_rate': '1.4e-08', 'epoch': '0.058'}
+==================================================
+2026-02-26 15:54:26,238 - INFO - Training Progress - Step 30
+2026-02-26 15:54:26,238 - INFO - Loss: 4.15897798538208
+2026-02-26 15:54:26,238 - INFO - Input text: 이마켓코리아 영끌 익절...
+2026-02-26 15:54:26,238 - INFO - True label: {"action": "SELL", "ticker": "122900", "name": "이마켓코리아", "qty": "MAX"}
+2026-02-26 15:54:26,239 - INFO - Model prediction: 을 도와
+2026-02-26 15:54:26,239 - INFO - ==================================================
+  8%|███▎                                       | 39/500 [04:47<58:39,  7.63s/it]2026-02-26 15:55:40,543 - INFO -
+{'loss': '4.283', 'grad_norm': '0.2287', 'learning_rate': '1.45e-08', 'epoch': '0.06'}
+{'loss': '4.088', 'grad_norm': '0.2213', 'learning_rate': '1.5e-08', 'epoch': '0.062'}
+{'loss': '4.312', 'grad_norm': '0.2155', 'learning_rate': '1.55e-08', 'epoch': '0.064'}
+{'loss': '4.401', 'grad_norm': '0.2396', 'learning_rate': '1.6e-08', 'epoch': '0.066'}
+{'loss': '3.957', 'grad_norm': '0.2058', 'learning_rate': '1.65e-08', 'epoch': '0.068'}
+{'loss': '4.201', 'grad_norm': '0.2351', 'learning_rate': '1.7e-08', 'epoch': '0.07'}
+{'loss': '4.322', 'grad_norm': '0.2273', 'learning_rate': '1.75e-08', 'epoch': '0.072'}
+{'loss': '4.142', 'grad_norm': '0.2343', 'learning_rate': '1.8e-08', 'epoch': '0.074'}
+{'loss': '4.2', 'grad_norm': '0.2058', 'learning_rate': '1.85e-08', 'epoch': '0.076'}
+{'loss': '4.171', 'grad_norm': '0.2321', 'learning_rate': '1.9e-08', 'epoch': '0.078'}
+==================================================
+2026-02-26 15:55:40,543 - INFO - Training Progress - Step 40
+2026-02-26 15:55:40,544 - INFO - Loss: 4.171377658843994
+2026-02-26 15:55:40,544 - INFO - Input text: 이투솔루션 얼마임?...
+2026-02-26 15:55:40,544 - INFO - True label: {"action": "INQUIRY", "ticker": "011690", "name": "이투솔루션"}
+2026-02-26 15:55:40,544 - INFO - Model prediction:  목록을
+2026-02-26 15:55:40,544 - INFO - ==================================================
+ 10%|████▏                                      | 49/500 [06:01<56:00,  7.45s/it]2026-02-26 15:56:53,811 - INFO -
+{'loss': '4.31', 'grad_norm': '0.228', 'learning_rate': '1.95e-08', 'epoch': '0.08'}
+{'loss': '4.411', 'grad_norm': '0.2252', 'learning_rate': '2e-08', 'epoch': '0.082'}
+{'loss': '4.331', 'grad_norm': '0.2311', 'learning_rate': '2.05e-08', 'epoch': '0.084'}
+{'loss': '4.227', 'grad_norm': '0.2459', 'learning_rate': '2.1e-08', 'epoch': '0.086'}
+{'loss': '4.481', 'grad_norm': '0.2539', 'learning_rate': '2.15e-08', 'epoch': '0.088'}
+{'loss': '4.058', 'grad_norm': '0.2123', 'learning_rate': '2.2e-08', 'epoch': '0.09'}
+{'loss': '4.405', 'grad_norm': '0.25', 'learning_rate': '2.25e-08', 'epoch': '0.092'}
+{'loss': '4.638', 'grad_norm': '0.2415', 'learning_rate': '2.3e-08', 'epoch': '0.094'}
+{'loss': '4.03', 'grad_norm': '0.2251', 'learning_rate': '2.35e-08', 'epoch': '0.096'}
+{'loss': '4.249', 'grad_norm': '0.2557', 'learning_rate': '2.4e-08', 'epoch': '0.098'}
+==================================================
+2026-02-26 15:56:53,811 - INFO - Training Progress - Step 50
+2026-02-26 15:56:53,812 - INFO - Loss: 4.248681545257568
+2026-02-26 15:56:53,812 - INFO - Input text: ODEX 기후변화솔루션이 절반 최우선 매수...
+2026-02-26 15:56:53,812 - INFO - True label: {"action": "BUY", "ticker": "404260", "name": "ODEX 기후변화솔루션", "qty": "MAX", "type": "LIMIT"}
+2026-02-26 15:56:53,812 - INFO - Model prediction: 을 도와
+2026-02-26 15:56:53,812 - INFO - ==================================================
+ 10%|████▎                                      | 50/500 [06:08<54:49,  7.31s/it]Traceback (most recent call last):
+{'loss': '4.256', 'grad_norm': '0.2405', 'learning_rate': '2.45e-08', 'epoch': '0.1'}
+  File "/home/minia/voice-trader/qwen2.5-7b-fine-tuning/main.py", line 110, in <module>
+    main()
+    ~~~~^^
+  File "/home/minia/voice-trader/qwen2.5-7b-fine-tuning/main.py", line 93, in main
+    trainer.train()
+    ~~~~~~~~~~~~~^^
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 1412, in train
+    return inner_training_loop(
+        args=args,
+    ...<2 lines>...
+        ignore_keys_for_eval=ignore_keys_for_eval,
+    )
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 1813, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tr_loss,
+        ^^^^^^^^
+    ...<6 lines>...
+        learning_rate=learning_rate,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 2125, in _maybe_log_save_evaluate
+    metrics = self._evaluate(trial, ignore_keys_for_eval)
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 2983, in _evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 2568, in evaluate
+    output = self.evaluation_loop(
+        eval_dataloader,
+    ...<5 lines>...
+        metric_key_prefix=metric_key_prefix,
+    )
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/trainer.py", line 2685, in evaluation_loop
+    for step, inputs in enumerate(dataloader):
+                        ~~~~~~~~~^^^^^^^^^^^^
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/accelerate/data_loader.py", line 577, in __iter__
+    current_batch = send_to_device(current_batch, self.device, non_blocking=self._non_blocking)
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/accelerate/utils/operations.py", line 154, in send_to_device
+    return tensor.to(device, non_blocking=non_blocking)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minia/voice-trader/.venv/lib/python3.14/site-packages/transformers/tokenization_utils_base.py", line 774, in to
+    k: v.to(device=device, non_blocking=non_blocking) if hasattr(v, "to") and callable(v.to) else v
+       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
