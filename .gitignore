@@ -1,2 +1,4 @@
 .env
 secret.json
+qwen2.5-7b-fine-tuning/train.log
+qwen2.5-7b-fine-tuning/wandb

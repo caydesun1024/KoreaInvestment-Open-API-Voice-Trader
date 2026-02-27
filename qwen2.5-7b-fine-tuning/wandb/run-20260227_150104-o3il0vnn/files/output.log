@@ -316,7 +316,7 @@
 2026-02-27 16:08:23,670 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json "HTTP/1.1 200 OK"
 /home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
   return fn(*args, **kwargs)
- 10%|▉         | 215/2166 [1:10:56<8:16:48, 15.28s/it]  
+                                                        
 {'loss': '0.2662', 'grad_norm': '0.0203', 'learning_rate': '0.0001903', 'epoch': '0.2786'}
 {'loss': '0.2509', 'grad_norm': '0.01833', 'learning_rate': '0.0001902', 'epoch': '0.28'}
 {'loss': '0.2786', 'grad_norm': '0.02305', 'learning_rate': '0.0001901', 'epoch': '0.2814'}
@@ -332,3 +332,24 @@
 {'loss': '0.2757', 'grad_norm': '0.02248', 'learning_rate': '0.0001892', 'epoch': '0.2952'}
 {'loss': '0.2613', 'grad_norm': '0.02274', 'learning_rate': '0.0001891', 'epoch': '0.2966'}
 {'loss': '0.3163', 'grad_norm': '0.03037', 'learning_rate': '0.000189', 'epoch': '0.298'}
+{'loss': '0.2529', 'grad_norm': '0.01802', 'learning_rate': '0.0001889', 'epoch': '0.2994'}
+{'loss': '0.3312', 'grad_norm': '0.03495', 'learning_rate': '0.0001888', 'epoch': '0.3008'}
+{'loss': '0.2089', 'grad_norm': '0.02454', 'learning_rate': '0.0001887', 'epoch': '0.3021'}
+{'loss': '0.2477', 'grad_norm': '0.02858', 'learning_rate': '0.0001886', 'epoch': '0.3035'}
+{'loss': '0.259', 'grad_norm': '0.03106', 'learning_rate': '0.0001885', 'epoch': '0.3049'}
+{'loss': '0.2677', 'grad_norm': '0.02972', 'learning_rate': '0.0001884', 'epoch': '0.3063'}
+{'loss': '0.2988', 'grad_norm': '0.04285', 'learning_rate': '0.0001883', 'epoch': '0.3077'}
+{'loss': '0.2533', 'grad_norm': '0.01889', 'learning_rate': '0.0001882', 'epoch': '0.3091'}
+{'loss': '0.2775', 'grad_norm': '0.02901', 'learning_rate': '0.0001881', 'epoch': '0.3105'}
+{'loss': '0.2984', 'grad_norm': '0.05698', 'learning_rate': '0.000188', 'epoch': '0.3119'}
+{'loss': '0.2625', 'grad_norm': '0.0281', 'learning_rate': '0.0001879', 'epoch': '0.3132'}
+{'loss': '0.3261', 'grad_norm': '0.05834', 'learning_rate': '0.0001878', 'epoch': '0.3146'}
+{'loss': '0.2467', 'grad_norm': '0.01388', 'learning_rate': '0.0001877', 'epoch': '0.316'}
+{'loss': '0.2702', 'grad_norm': '0.04091', 'learning_rate': '0.0001876', 'epoch': '0.3174'}
+{'loss': '0.3271', 'grad_norm': '0.03481', 'learning_rate': '0.0001875', 'epoch': '0.3188'}
+{'loss': '0.312', 'grad_norm': '0.03456', 'learning_rate': '0.0001874', 'epoch': '0.3202'}
+{'loss': '0.3186', 'grad_norm': '0.05761', 'learning_rate': '0.0001873', 'epoch': '0.3216'}
+{'loss': '0.2686', 'grad_norm': '0.02178', 'learning_rate': '0.0001872', 'epoch': '0.3229'}
+{'loss': '0.2807', 'grad_norm': '0.02559', 'learning_rate': '0.0001871', 'epoch': '0.3243'}
+{'loss': '0.2719', 'grad_norm': '0.02239', 'learning_rate': '0.000187', 'epoch': '0.3257'}
+{'loss': '0.3564', 'grad_norm': '0.04502', 'learning_rate': '0.0001869', 'epoch': '0.3271'}
