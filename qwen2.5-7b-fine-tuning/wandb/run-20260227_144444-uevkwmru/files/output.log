@@ -1,0 +1,47 @@
+  0%|                                                                                                                                                                                                         | 0/2166 [00:00<?, ?it/s]/home/minia/voice-trader/.venv/lib/python3.14/site-packages/torch/_dynamo/eval_frame.py:1181: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+  0%|▊                                                                                                                                                                                              | 9/2166 [01:54<7:50:27, 13.09s/it]2026-02-27 14:46:55,434 - INFO -
+{'loss': '2.538', 'grad_norm': '0.2295', 'learning_rate': '0', 'epoch': '0.001386'}
+{'loss': '2.86', 'grad_norm': '0.241', 'learning_rate': '2e-06', 'epoch': '0.002772'}
+{'loss': '2.579', 'grad_norm': '0.2059', 'learning_rate': '4e-06', 'epoch': '0.004158'}
+{'loss': '2.659', 'grad_norm': '0.2145', 'learning_rate': '6e-06', 'epoch': '0.005544'}
+{'loss': '2.563', 'grad_norm': '0.2206', 'learning_rate': '8e-06', 'epoch': '0.00693'}
+{'loss': '2.719', 'grad_norm': '0.2245', 'learning_rate': '1e-05', 'epoch': '0.008316'}
+{'loss': '2.615', 'grad_norm': '0.2223', 'learning_rate': '1.2e-05', 'epoch': '0.009702'}
+{'loss': '2.737', 'grad_norm': '0.2322', 'learning_rate': '1.4e-05', 'epoch': '0.01109'}
+{'loss': '2.766', 'grad_norm': '0.2523', 'learning_rate': '1.6e-05', 'epoch': '0.01247'}
+==================================================
+2026-02-27 14:46:55,435 - INFO - Training Progress - Step 10
+2026-02-27 14:46:55,435 - INFO - Loss: 2.7657628059387207
+2026-02-27 14:46:55,435 - INFO - Input text: RISE 미국S&P500(H) 100주만 담아줘...
+2026-02-27 14:46:55,435 - INFO - True label: {"action": "BUY", "name": "RISE 미국S&P500(H)", "ticker": "453330", "qty": 100, "type": "LIMIT"}
+2026-02-27 14:46:55,436 - INFO - Model prediction: 안녕하세요
+2026-02-27 14:46:55,436 - INFO - ==================================================
+  1%|█▋                                                                                                                                                                                            | 19/2166 [04:07<8:04:49, 13.55s/it]2026-02-27 14:49:09,213 - INFO -
+{'loss': '2.416', 'grad_norm': '0.2341', 'learning_rate': '1.8e-05', 'epoch': '0.01386'}
+{'loss': '2.458', 'grad_norm': '0.2477', 'learning_rate': '2e-05', 'epoch': '0.01525'}
+{'loss': '2.481', 'grad_norm': '0.2311', 'learning_rate': '2.2e-05', 'epoch': '0.01663'}
+{'loss': '2.554', 'grad_norm': '0.2355', 'learning_rate': '2.4e-05', 'epoch': '0.01802'}
+{'loss': '2.474', 'grad_norm': '0.2852', 'learning_rate': '2.6e-05', 'epoch': '0.0194'}
+{'loss': '2.504', 'grad_norm': '0.2978', 'learning_rate': '2.8e-05', 'epoch': '0.02079'}
+{'loss': '2.388', 'grad_norm': '0.2504', 'learning_rate': '3e-05', 'epoch': '0.02218'}
+{'loss': '2.307', 'grad_norm': '0.2593', 'learning_rate': '3.2e-05', 'epoch': '0.02356'}
+{'loss': '2.205', 'grad_norm': '0.2563', 'learning_rate': '3.4e-05', 'epoch': '0.02495'}
+{'loss': '2.23', 'grad_norm': '0.2363', 'learning_rate': '3.6e-05', 'epoch': '0.02633'}
+==================================================
+2026-02-27 14:49:09,214 - INFO - Training Progress - Step 20
+2026-02-27 14:49:09,214 - INFO - Loss: 2.2296042442321777
+2026-02-27 14:49:09,214 - INFO - Input text: 싶어 미국나스닥100선물인버스(H) 가격 보고 KODEX...
+2026-02-27 14:49:09,215 - INFO - True label: {"action": "INQUIRY", "name": "KODEX 미국나스닥100선물인버스(H)", "ticker": "409810", "qty": null, "type": "UNKNOWN"}
+2026-02-27 14:49:09,215 - INFO - Model prediction: KODEX
+2026-02-27 14:49:09,215 - INFO - ==================================================
+  1%|██▍                                                                                                                                                                                           | 28/2166 [06:11<8:04:05, 13.59s/it]
+{'loss': '2.344', 'grad_norm': '0.2224', 'learning_rate': '3.8e-05', 'epoch': '0.02772'}
+{'loss': '1.998', 'grad_norm': '0.1997', 'learning_rate': '4e-05', 'epoch': '0.02911'}
+{'loss': '2.038', 'grad_norm': '0.2022', 'learning_rate': '4.2e-05', 'epoch': '0.03049'}
+{'loss': '2.074', 'grad_norm': '0.1728', 'learning_rate': '4.4e-05', 'epoch': '0.03188'}
+{'loss': '1.728', 'grad_norm': '0.1518', 'learning_rate': '4.6e-05', 'epoch': '0.03326'}
+{'loss': '1.764', 'grad_norm': '0.1559', 'learning_rate': '4.8e-05', 'epoch': '0.03465'}
+{'loss': '1.741', 'grad_norm': '0.1608', 'learning_rate': '5e-05', 'epoch': '0.03604'}
+{'loss': '1.775', 'grad_norm': '0.1546', 'learning_rate': '5.2e-05', 'epoch': '0.03742'}
+{'loss': '1.526', 'grad_norm': '0.1176', 'learning_rate': '5.4e-05', 'epoch': '0.03881'}

@@ -46,7 +46,7 @@ def main():
 
     # Load and process dataset
     logging.info("Loading and processing dataset...")
-    train_data, val_data = load_dataset("./data/preprocessed_data.xlsx")
+    train_data, val_data = load_dataset("./data/stock_trading_dataset_v2.xlsx")
     logging.info(
         f"Loaded {len(train_data)} training samples and {len(val_data)} validation samples"
     )
