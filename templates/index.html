@@ -2,47 +2,64 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정환의 AI 트레이더</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* 로딩 스피너 스타일 */
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        #loading { text-align: center; color: #3498db; font-weight: bold; }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>🤖 AI Stock Assistant</h1>
         <div class="input-group">
-            <input type="text" id="userInput" placeholder="예: 삼전 얼마야?" onkeypress="if(event.keyCode==13) sendQuery()">
-            <button onclick="sendQuery()">질문하기</button>
+            <input type="text" id="userInput" placeholder="예: 삼전 10주 사줘" onkeypress="if(event.keyCode==13) sendQuery()">
+            <button id="sendBtn" onclick="sendQuery()">질문하기</button>
         </div>
 
-        <div id="loading" style="display:none; margin: 20px;">분석 중...</div>
+        <div id="loading" style="display:none;">
+            <div class="loader"></div>
+            <p>RTX 3080이 분석 중입니다... (약 9초)</p>
+        </div>
 
         <div id="resultArea" class="result-card" style="display: none">
             <h2 id="stockName"></h2>
             <div class="price-val"><span id="stockPrice"></span>원</div>
             <div id="stockChange" class="change-val"></div>
+            <div id="latency" style="font-size: 0.8rem; color: gray; margin-top: 10px;"></div>
         </div>
     </div>
 
     <script>
-        async function sendQuery(overrideText = null) {
-            const text = overrideText || document.getElementById("userInput").value;
-            const resArea = document.getElementById("resultArea");
+        async function sendQuery() {
+            const text = document.getElementById("userInput").value;
+            const btn = document.getElementById("sendBtn");
             const loading = document.getElementById("loading");
+            const resArea = document.getElementById("resultArea");
 
             if (!text) return;
 
+            // UI 상태 변경 (로딩 시작)
+            btn.disabled = true;
             loading.style.display = "block";
             resArea.style.display = "none";
 
             try {
-                // 백엔드 포트 8000번으로 명시적 요청 가능하나, 같은 서버라면 경로만 써도 됨
                 const response = await fetch("/ask", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ text: text }),
                 });
-
-                if (!response.ok) throw new Error("서버 응답 오류");
 
                 const data = await response.json();
 
@@ -50,22 +67,19 @@
                     resArea.style.display = "block";
                     document.getElementById("stockName").innerText = data.name;
                     document.getElementById("stockPrice").innerText = data.price;
+                    document.getElementById("latency").innerText = `AI 응답 속도: ${data.latency}`;
+                    
                     const changeEl = document.getElementById("stockChange");
                     changeEl.innerText = (data.sign <= "2" ? "▲ " : "▼ ") + data.change;
                     changeEl.className = "change-val " + (data.sign <= "2" ? "up" : "down");
-                } 
-                else if (data.status === "suggest") {
-                    if (confirm(data.message)) {
-                        sendQuery(data.name); // 확인 누르면 제안된 이름으로 다시 조회
-                    }
-                } 
-                else {
+                } else {
                     alert(data.message);
                 }
             } catch (error) {
-                console.error(error);
-                alert("서버와 연결할 수 없습니다. 포트(8000)를 확인하세요.");
+                alert("서버 연결 실패!");
             } finally {
+                // UI 상태 변경 (로딩 종료)
+                btn.disabled = false;
                 loading.style.display = "none";
             }
         }
