@@ -40,7 +40,7 @@
 
 1. **Smart Stock Mapper 고도화**: 우선주, ETN, 거래 정지 종목에 대한 가중치 패널티 로직 추가
 2. **API Integration**: 한국투자증권 Open API 실계좌 연동 테스트
-3. **Voice Interface**: STT(Speech-to-Text) 엔진 결합을 통한 음성 트레이딩 완성
-4. **Background Processing**: `nohup` 또는 `tmux`를 활용한 24/7 서버 가동 환경 구축
+3. **Voice Interface**: STT(Speech-to-Text) 엔진 결합을 통한 음성 트레이딩 완성 - OpenAI Whisper 혹은 Qwen 자체 모델 비교 예정
 
+## 🚀 5. 향후 로드맵 (Roadmap)
 ---
