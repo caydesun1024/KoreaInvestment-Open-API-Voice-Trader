@@ -31,7 +31,7 @@
 
 실제 학습 과정에서 수집된 핵심 지표입니다.
 ![poster](./readme_image/low_learning.png)
-* **Learning Rate Optimization**: 초기 $5e-8$에서 **$2e-4$**로 상향 조정하여 지그재그 현상 해결 및 학습 효율 극대화
+* **Learning Rate Optimization**: 초기 $5e-8$에서 $2e-4$로 상향 조정하여 지그재그 현상 해결 및 학습 효율 극대화
 * **Optimizer**: `paged_adamw_8bit` 적용을 통해 VRAM 효율성 확보
 * **Loss Convergence**: 학습 시작 후 약 60스텝 만에 **Train Loss 3.0에서 0.5 미만**으로 급격히 수렴
 * **Batch Configuration**: Micro-batch size 1, Gradient accumulation 16
