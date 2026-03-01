@@ -44,5 +44,6 @@
 
 ##  6. 참고자료 (Reference)
 
+1. [시각장애인을 위한 음성 명령 기반 주식 거래 시스템 설계 및 개발](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12093626)
 1. [EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks](https://arxiv.org/abs/1901.1119)
 ---
