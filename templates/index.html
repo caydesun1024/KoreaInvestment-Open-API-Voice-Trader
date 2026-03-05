@@ -2,25 +2,50 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>정환의 AI Voice-Trader v3.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice-Trader</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>🎙️ AI Voice-Trader</h1>
-        <button id="micBtn" onclick="toggleRecording()" style="padding:20px; font-size:1.2rem; border-radius:50px; background:#ff4757; color:white; border:none; cursor:pointer;">
-            🎤 말하기 시작
-        </button>
+        <header>
+            <h1>🎙️ AI Voice-Trader</h1>
+            <p class="subtitle">종목명을 말하거나 입력하세요</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="textInput" placeholder="예: 삼성전자 얼마야?" onkeypress="handleKeyPress(event)">
+                <button id="micBtn" class="icon-btn" onclick="toggleRecording()" title="음성 인식">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="sendBtn" class="icon-btn primary" onclick="sendText()" title="검색">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
         
-        <div id="status" style="display:none; margin-top:20px; color:#3498db; font-weight:bold;">
+        <div id="status" class="status-bar" style="display:none;">
+            <div class="spinner"></div>
             <span id="statusText">듣고 있습니다...</span>
         </div>
 
-        <div id="resultArea" style="display:none; margin-top:30px; padding:20px; border:1px solid #ddd; border-radius:10px;">
-            <p id="recognizedText" style="color:#888;"></p>
-            <h2 id="stockName"></h2>
-            <div id="stockPrice" style="font-size:2rem; font-weight:bold; color:#e74c3c;"></div>
-            <p id="latency" style="font-size:0.8rem; color:#aaa;"></p>
+        <div id="resultArea" class="result-card" style="display:none;">
+            <div class="result-header">
+                <span id="pathTag" class="badge">Regex</span>
+                <p id="recognizedText"></p>
+            </div>
+            <div class="result-body">
+                <h2 id="stockName">종목명</h2>
+                <div class="price-container">
+                    <span id="stockPrice" class="price">0</span>
+                    <span class="currency">원</span>
+                </div>
+            </div>
+            <div class="result-footer">
+                <span id="latency">소요시간: 0.5s</span>
+            </div>
         </div>
     </div>
 
@@ -29,38 +54,76 @@
         let audioChunks = [];
         let isSpeakingStarted = false;
         const SILENCE_THRESHOLD = 0.01;
-        const INITIAL_SILENCE_LIMIT = 10000; // 10초
-        const NORMAL_SILENCE_LIMIT = 2000;   // 2초
+        const INITIAL_SILENCE_LIMIT = 8000; 
+        const NORMAL_SILENCE_LIMIT = 1500;
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendText();
+        }
+
+        async function sendText() {
+            const textInput = document.getElementById("textInput");
+            const text = textInput.value.trim();
+            if (!text) return;
+
+            showStatus("AI 분석 중...");
+            try {
+                const res = await fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: text })
+                });
+                const data = await res.json();
+                displayResult(data);
+            } catch (e) {
+                alert("오류가 발생했습니다.");
+            } finally {
+                hideStatus();
+            }
+        }
 
         async function toggleRecording() {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const source = audioContext.createMediaStreamSource(stream);
-            analyser = audioContext.createAnalyser();
-            source.connect(analyser);
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const source = audioContext.createMediaStreamSource(stream);
+                analyser = audioContext.createAnalyser();
+                source.connect(analyser);
 
-            mediaRecorder = new MediaRecorder(stream);
-            audioChunks = [];
-            isSpeakingStarted = false;
-            silenceStart = null;
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+                isSpeakingStarted = false;
+                silenceStart = null;
 
-            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-            mediaRecorder.onstop = async () => {
-                if (audioChunks.length > 0) {
-                    const blob = new Blob(audioChunks, { type: 'audio/wav' });
-                    if (blob.size > 2000) sendAudio(blob);
-                }
-                stream.getTracks().forEach(t => t.stop());
-                audioContext.close();
-                document.getElementById("micBtn").innerText = "🎤 말하기 시작";
-                document.getElementById("micBtn").style.background = "#ff4757";
-            };
+                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                mediaRecorder.onstop = async () => {
+                    if (audioChunks.length > 0) {
+                        const blob = new Blob(audioChunks, { type: 'audio/wav' });
+                        if (blob.size > 2000) sendAudio(blob);
+                    }
+                    stream.getTracks().forEach(t => t.stop());
+                    audioContext.close();
+                    setMicUI(false);
+                };
 
-            mediaRecorder.start();
-            document.getElementById("micBtn").innerText = "🛑 듣는 중... (10초 대기)";
-            document.getElementById("micBtn").style.background = "#2ed573";
-            document.getElementById("status").style.display = "block";
-            checkSilence();
+                mediaRecorder.start();
+                setMicUI(true);
+                showStatus("듣고 있습니다...");
+                checkSilence();
+            } catch (e) {
+                alert("마이크 접근 권한이 필요합니다.");
+            }
+        }
+
+        function setMicUI(active) {
+            const btn = document.getElementById("micBtn");
+            if (active) {
+                btn.classList.add("recording");
+                btn.innerHTML = '<i class="fas fa-stop"></i>';
+            } else {
+                btn.classList.remove("recording");
+                btn.innerHTML = '<i class="fas fa-microphone"></i>';
+            }
         }
 
         function checkSilence() {
@@ -71,10 +134,7 @@
             const rms = Math.sqrt(sum / data.length);
 
             if (rms > SILENCE_THRESHOLD) {
-                if (!isSpeakingStarted) {
-                    isSpeakingStarted = true;
-                    document.getElementById("micBtn").innerText = "🛑 듣는 중... (말을 끝내보세요)";
-                }
+                if (!isSpeakingStarted) isSpeakingStarted = true;
                 silenceStart = null; 
             } else {
                 if (!silenceStart) silenceStart = Date.now();
@@ -88,20 +148,41 @@
         }
 
         async function sendAudio(blob) {
-            document.getElementById("statusText").innerText = "AI 분석 중...";
+            showStatus("음성 변환 및 분석 중...");
             const fd = new FormData(); fd.append("file", blob);
-            const res = await fetch("/whisper-ask", { method: "POST", body: fd });
-            const data = await res.json();
-            
+            try {
+                const res = await fetch("/whisper-ask", { method: "POST", body: fd });
+                const data = await res.json();
+                displayResult(data);
+            } catch (e) {
+                alert("분석 중 오류가 발생했습니다.");
+            } finally {
+                hideStatus();
+            }
+        }
+
+        function displayResult(data) {
             if (data.status === "success") {
                 document.getElementById("resultArea").style.display = "block";
                 document.getElementById("recognizedText").innerText = `"${data.text}"`;
                 document.getElementById("stockName").innerText = data.name;
-                document.getElementById("stockPrice").innerText = data.price + "원";
-                document.getElementById("latency").innerText = `경로: ${data.path}`;
+                document.getElementById("stockPrice").innerText = data.price;
+                document.getElementById("pathTag").innerText = data.path;
+                document.getElementById("latency").innerText = `소요시간: ${data.latency}s`;
+                
+                // 검색창 비우기
+                document.getElementById("textInput").value = "";
             } else {
                 alert(data.message);
             }
+        }
+
+        function showStatus(text) {
+            document.getElementById("status").style.display = "flex";
+            document.getElementById("statusText").innerText = text;
+        }
+
+        function hideStatus() {
             document.getElementById("status").style.display = "none";
         }
     </script>
