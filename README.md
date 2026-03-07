@@ -15,6 +15,7 @@
 - [환경 변수 설정](#환경-변수-설정)
 - [실행 방법](#실행-방법)
 - [로드맵](#로드맵)
+- [트러블슈팅 및 성능 최적화](#트러블슈팅-및-성능-최적화-기록-2026-03-07)
 
 ---
 
@@ -36,11 +37,12 @@
 | 종목명 퍼지 매칭 | ✅ | RapidFuzz, 2500+ 종목 |
 | 의도 분석 (3단계 하이브리드) | ✅ | Regex → RapidFuzz → Qwen |
 | 주가 조회 | ✅ | KIS REST API (모의/실전) |
+| 차트 데이터 (15분봉/일봉) | ✅ | Redis 캐싱 적용, 9시 데이터 보장 |
+| 계좌/포트폴리오 조회 | ✅ | Redis 캐싱 적용, 지연 최적화 |
 | 시장가 매수 주문 | ✅ | KIS REST API |
-| 웹 대시보드 UI | ✅ | FastAPI + Jinja2 |
+| 웹 대시보드 UI | ✅ | Next.js (TypeScript) + Tailwind |
 | 매도 주문 | ❌ | 로드맵 |
 | 체결 통보 (실시간) | ❌ | 로드맵 |
-| 잔고 / 포트폴리오 조회 | ❌ | 로드맵 |
 | TTS 피드백 | ❌ | 로드맵 |
 
 ---
@@ -56,46 +58,37 @@
       ▼                                   [웹 UI]
 [3단계 의도 분석]  ◄── 텍스트 직접 입력도 가능 ──┘
       │
-      ├── action: inquiry ──► [KIS REST API 시세 조회]
+      ├── action: inquiry ──► [Redis Cache] ◄──► [KIS REST API]
       │                              │
       └── action: buy ──────► [KIS REST API 매수 주문]
                                       │
                               [JSON 응답 → 웹 UI 표시]
 ```
 
-### 인증 플로우
-
-```
-.env (appkey / secretkey)
-      │
-      ▼
-[KIS OAuth 토큰 발급]  ──►  REST API 호출에 사용
-      │
-      ▼
-[WebSocket approval_key 발급]  ──►  실시간 시세/체결 구독에 사용 (로드맵)
-```
-
 ---
 
-## 하이브리드 의도 분석 파이프라인
+## 트러블슈팅 및 성능 최적화 기록 (2026-03-07)
 
-단순 LLM 호출이 아닌 **3단계 레이어**로 속도와 정확도를 동시에 확보합니다.
+### 🚀 Redis 캐시 레이어 도입을 통한 성능 혁신
+*   **문제**: 모든 주식 데이터 조회 시 KIS API 네트워크 지연(평균 100ms~200ms) 발생 및 TPS 제한으로 인한 서비스 불안정.
+*   **해결**: `Redis`를 도입하여 핵심 데이터에 전략적 캐싱 적용.
+    *   **현재가**: 60초 캐싱 (속도 약 **600배** 향상: 100ms → **0.1ms**)
+    *   **계좌/자산**: 5~10초 캐싱 (검색 시 0원이 표시되는 딜레이 현상 제거)
+    *   **차트 데이터**: 5분~1시간 캐싱 (첫 로딩 후 즉시 응답 가능)
 
-```
-입력 텍스트: "SK하이닉스 지금 얼마야?"
-      │
-      ├─ [Level 1] Regex 패턴 매칭          < 0.01s
-      │       패턴에 맞으면 즉시 반환
-      │
-      ├─ [Level 2] RapidFuzz 종목명 매칭    < 0.1s
-      │       2500개 종목 대상 퍼지 매칭 (threshold=70)
-      │       오타·약어 처리 ("삼전" → "삼성전자")
-      │
-      └─ [Level 3] Qwen-2.5-7B LoRA        ~ 1.0s
-              복잡한 자연어, 복합 의도 처리
-              Fine-tuning: LoRA r=16, checkpoint-300
-              출력: {"action": "inquiry", "name": "SK하이닉스"}
-```
+### 📉 KIS API "시간 역행(Wrap-around)" 버그 해결
+*   **현상**: 15분봉 조회 시 09:00 데이터까지 오지 않고 14시 부근에서 끊기거나 전날 데이터가 섞이는 현상.
+*   **원인**: KIS API에 `09:00` 데이터를 요청하면, 모자란 데이터를 **전날 오후 15:30 데이터로 채워주는** 기이한 동작 확인.
+*   **해결**: 배치의 `oldest > newest` (시간 역전) 감지 로직 구현. 날짜 경계를 넘는 순간 수집을 중단하고 오늘 데이터만 필터링하여 **정확히 9시 정각 데이터까지의 무결성 보장**.
+
+### 🖱️ 차트 스크롤 및 UX 조작성 개선
+*   **스크롤 차단**: Native Event Listener의 `{ passive: false }` 옵션으로 차트 줌 조작 시 페이지 전체가 스크롤되는 간섭 현상 완전 차단.
+*   **드래그 감도**: 차트 컨테이너 픽셀 너비 대비 데이터 포인트 비율을 계산하여 **실제 드래그 거리와 차트 이동 거리를 1:1로 매칭** (Panning 최적화).
+*   **강제 동기화**: Redis 캐시가 꼬였을 경우를 대비해 **5초 쿨타임이 적용된 Force Refresh(Sync)** 버튼 구현.
+
+### 🛠️ KIS API 제약 사항 극복
+*   **TPS 에러 방어**: API 호출 간 **Staggering(미세 지연)** 적용 및 **"불굴의 재시도(Relentless Retry)"** 로직으로 TPS 초과 에러(`EGW00201`) 발생 시 자동 복구.
+*   **서버 제약 해결**: 모의투자 환경에서 `chk_holiday` 호출 불가 문제를 **실전 서버 강제 할당** 방식으로 해결.
 
 ---
 
@@ -104,13 +97,11 @@
 | 분야 | 기술 |
 |------|------|
 | **Backend** | Python 3.13, FastAPI, asyncio |
+| **Database** | Redis (Cache) |
 | **AI 모델** | Qwen-2.5-7B-Instruct + LoRA (PEFT) |
-| **모델 최적화** | BitsAndBytes 4-bit 양자화, bfloat16 |
 | **STT** | RTZR VITO API |
-| **증권 API** | 한국투자증권(KIS) Open API |
-| **종목 매칭** | RapidFuzz |
-| **GPU** | NVIDIA RTX 3080 |
-| **프론트엔드** | HTML/CSS, Jinja2 템플릿 |
+| **Frontend** | Next.js 15, TypeScript, Recharts, Lucide Icons |
+| **Package Mgr** | uv (Fast Python Package Installer) |
 
 ---
 
@@ -119,113 +110,41 @@
 ```
 voice-trader/
 ├── main.py                          # FastAPI 서버 진입점
-├── mock-buy-test.py                 # WebSocket 체결통보 테스트
-├── pyproject.toml
-├── .env                             # API 키 (gitignore)
+├── benchmark_redis.py               # Redis 성능 측정 스크립트
+├── server_stop.sh                   # 정밀 타격형 서비스 종료 스크립트
 │
 ├── src/
 │   ├── api/
-│   │   ├── kis_auth.py              # KIS 인증 + WebSocket 클라이언트
-│   │   ├── vito_stt.py              # RTZR VITO STT
+│   │   ├── kis_auth.py              # KIS 인증 
 │   │   └── domestic_stock_functions.py  # KIS REST API 함수 모음
-│   ├── ai/
-│   │   └── analyzer.py             # Qwen 추론, 의도 분석
 │   ├── services/
-│   │   └── trading_service.py      # 3단계 파이프라인 오케스트레이션
+│   │   └── trading_service.py      # Redis 캐시 로직이 통합된 핵심 서비스
 │   └── utils/
-│       └── mapper.py               # 종목명 → 코드 매핑 (RapidFuzz)
+│       ├── redis_client.py         # Redis 연결 및 DataFrame 직렬화 유틸
+│       └── mapper.py               # 종목명 → 코드 매핑
 │
-├── qwen2.5-7b-fine-tuning/
-│   ├── main.py                      # 학습 오케스트레이션
-│   ├── config.py                    # LoRA r=16, lr=2e-4, epoch=3
-│   ├── model.py                     # 4-bit 양자화 + LoRA 적용
-│   ├── trainer.py                   # 커스텀 콜백 (샘플 예측 출력)
-│   ├── inference.py                 # 검증 데이터 평가
-│   ├── data.py                      # 데이터 로드 및 분할 (80/20)
-│   └── Qwen_singleGPU-v1/
-│       └── checkpoint-300/          # 최종 사용 체크포인트
-│
-├── stock_info/
-│   └── stock_list.csv               # 2500+ 종목 코드+이름
-├── static/
-│   └── style.css
-└── templates/
-    └── index.html
+├── v0-project/                      # Next.js 프론트엔드 프로젝트
+└── final_stock_model/               # 파인튜닝된 Qwen 모델 가중치
 ```
-
----
-
-## 환경 변수 설정
-
-`.env` 파일을 프로젝트 루트에 생성하세요.
-
-```env
-# KIS 모의투자
-KIS_MOCK_APP_KEY=your_mock_app_key
-KIS_MOCK_APP_SECRET=your_mock_app_secret
-KIS_MOCK_ACCOUNT=your_account_number
-
-# KIS 실전투자 (선택)
-KIS_APP_KEY=your_app_key
-KIS_APP_SECRET=your_app_secret
-
-# 공통
-KIS_HTS_ID=your_hts_id_12digits
-
-# RTZR VITO STT
-RZ_CLIENT_ID=your_client_id
-RZ_CLIENT_SECRET=your_client_secret
-```
-
----
-
-## 실행 방법
-
-### 1. 의존성 설치
-
-```bash
-pip install -r requirements.txt
-# 또는
-uv sync
-```
-
-### 2. 서버 실행
-
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-> **주의**: 서버 시작 시 Qwen 모델 로딩(~30초)과 KIS 토큰 발급이 자동으로 진행됩니다.
-
-### 3. 웹 UI 접속
-
-```
-http://localhost:8000
-```
-
-마이크 버튼으로 음성 입력하거나, 텍스트를 직접 입력할 수 있습니다.
 
 ---
 
 ## 로드맵
 
-### Phase 1 — 트레이딩 기능 완성
+### Phase 1 — 트레이딩 기능 완성 (진행 중)
 
+- [x] Redis 기반 성능 최적화 및 캐싱 시스템 구축
+- [x] 9시 장 시작 데이터 무결성 확보
 - [ ] 매도 주문 ("삼성전자 10주 팔아")
-- [ ] 지정가 주문 ("삼성전자 60000원에 10주 사줘")
-- [ ] 잔고 및 보유 종목 조회 ("내 잔고 얼마야")
-- [ ] 체결통보 WebSocket 연동 (H0STCNI9 → 실시간 피드백)
+- [ ] 잔고 및 보유 종목 조회 UI 고도화
 
-### Phase 2 — 안전성 및 사용성
+### Phase 2 — 보안 및 멀티 유저 (Next)
+
+- [ ] JWT 기반 로그인 시스템
+- [ ] 사용자별 KIS API 키 암호화 저장
+- [ ] PostgreSQL 연동 (영구 데이터 저장)
+
+### Phase 3 — 안전성 및 사용성
 
 - [ ] TTS 체결 피드백 ("삼성전자 10주 매수 완료")
-- [ ] 주문 전 확인 단계 ("정말 살까요?" → "응")
-- [ ] 리스크 게이트 (1회 최대 주문액, 일일 손실 한도)
-- [ ] PostgreSQL 거래 로그 (명령 → 체결 전 과정 기록)
-
-### Phase 3 — 아키텍처 고도화
-
-- [ ] Qwen 추론 서버 분리 (API 서버 startup 블록 해소)
-- [ ] Redis Pub/Sub 이벤트 버스 도입
-- [ ] 실시간 시세 스트리밍 대시보드 (H0STCNT0)
-- [ ] MSA 전환 및 Docker Compose 컨테이너화
+- [ ] 리스크 게이트 (일일 손실 한도 설정)
