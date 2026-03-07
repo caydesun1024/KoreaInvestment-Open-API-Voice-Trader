@@ -167,7 +167,16 @@ def reAuth(svr="prod", product=_cfg["my_prod"]):
 
 def getEnv(): return _cfg
 def smart_sleep(): time.sleep(_smartSleep)
-def getTREnv(): return _TRENV
+
+def getTREnv(): 
+    global _TRENV
+    # namedtuple은 tuple의 인스턴스이지만 필드가 있으므로 len이 0이 아님
+    if not hasattr(_TRENV, 'my_url'):
+        print("⚠️ [KIS] TRENV is not initialized. Trying emergency auth...")
+        auth(svr="vps", force=True)
+        if not hasattr(_TRENV, 'my_url'):
+            raise RuntimeError("KIS Auth initialization failed!")
+    return _TRENV
 
 # --- HashKey 생성 함수 추가 ---
 def set_order_hash_key(h, p):
@@ -176,7 +185,7 @@ def set_order_hash_key(h, p):
     if res.status_code == 200:
         h["hashkey"] = res.json()["HASH"]
     else:
-        print("Error getting HashKey:", res.status_code)
+        print("❌ Error setting hashkey!")
 
 # --- API 응답 클래스 ---
 
@@ -195,6 +204,10 @@ class APIResp:
     
     def getResCode(self): return self._rescode
     def getBody(self): return self._body
+    def getHeader(self):
+        # 헤더 정보를 namedtuple로 반환하여 .tr_cont 등으로 접근 가능하게 함
+        h_dict = {k.lower().replace("-", "_"): v for k, v in self._resp.headers.items()}
+        return namedtuple("header", h_dict.keys())(**h_dict)
     def getErrorCode(self): return self._err_code
     def getErrorMessage(self): return self._err_message
     
@@ -215,8 +228,15 @@ def _url_fetch(api_url, ptr_id, tr_cont, params, appendHeaders=None, postFlag=Fa
     headers = _getBaseHeader()
     
     tr_id = ptr_id
-    if ptr_id[0] in ("T", "J", "C") and isPaperTrading():
-        tr_id = "V" + ptr_id[1:]
+    # 모의투자(VTS) 환경인 경우 TR_ID 앞자리를 V로 변환 (일반적인 규칙)
+    # 단, 시세(quotations) API는 실전/모의 TR_ID가 동일하므로 제외
+    if isPaperTrading() and ptr_id[0] in ("F", "T", "J", "C"):
+        if "/quotations/" not in api_url:
+            tr_id = "V" + ptr_id[1:]
+    
+    # 디버깅을 위해 실제 나가는 TR_ID 출력 (로그 확인용)
+    if _DEBUG:
+        print(f"DEBUG - [_url_fetch] URL: {api_url} | TR_ID: {tr_id} | Paper: {isPaperTrading()}")
 
     headers.update({
         "tr_id": tr_id,
@@ -240,114 +260,20 @@ def _url_fetch(api_url, ptr_id, tr_cont, params, appendHeaders=None, postFlag=Fa
         auth(svr="vps" if isPaperTrading() else "prod", product=getTREnv().my_prod, force=True)
         return _url_fetch(api_url, ptr_id, tr_cont, params, appendHeaders, postFlag, retry_count + 1)
     
-    return APIRespError(res.status_code, res.text)
+    return APIResp(res) if res.text else APIRespError(res.status_code, res.text)
 
-# --- WebSocket 관련 ---
-
-_base_headers_ws = {"content-type": "utf-8"}
-
-def auth_ws(svr="prod", product=_cfg["my_prod"]):
+# --- 실시간 웹소켓 접속키 발급 ---
+def get_approval(svr="prod"):
     ak1 = "my_app" if svr == "prod" else "paper_app"
     ak2 = "my_sec" if svr == "prod" else "paper_sec"
-    p = {"grant_type": "client_credentials", "appkey": _cfg[ak1], "secretkey": _cfg[ak2]}
-    
     url = f"{_cfg[svr]}/oauth2/Approval"
+    p = {"grant_type": "client_credentials", "appkey": _cfg[ak1], "secretkey": _cfg[ak2]}
     res = requests.post(url, data=json.dumps(p), headers=_getBaseHeader())
     if res.status_code == 200:
-        _base_headers_ws["approval_key"] = res.json()["approval_key"]
-        changeTREnv(None, svr, product)
-    else:
-        print("❌ Get WebSocket Approval Key fail!")
+        return res.json()["approval_key"]
+    return None
 
-def data_fetch(tr_id, tr_type, params, appendHeaders=None) -> dict:
-    headers = copy.deepcopy(_base_headers_ws)
-    headers.update({"tr_type": tr_type, "custtype": "P"})
-    if appendHeaders: headers.update(appendHeaders)
-    return {"header": headers, "body": {"input": {"tr_id": tr_id, **params}}}
-
-def system_resp(data):
-    rdic = json.loads(data)
-    tr_id = rdic["header"]["tr_id"]
-    is_ping = (tr_id == "PINGPONG")
-    
-    iv, ekey, encrypt = None, None, rdic["header"].get("encrypt", "N")
-    if "body" in rdic:
-        iv = rdic["body"].get("output", {}).get("iv")
-        ekey = rdic["body"].get("output", {}).get("key")
-        
-    nt = namedtuple("SysMsg", ["isOk", "tr_id", "tr_key", "isUnSub", "isPingPong", "tr_msg", "iv", "ekey", "encrypt"])
-    return nt(
-        isOk=(rdic.get("body", {}).get("rt_cd") == "0"),
-        tr_id=tr_id,
-        tr_key=rdic["header"].get("tr_key"),
-        isUnSub=("body" in rdic and rdic["body"].get("msg1", "").startswith("UNSUB")),
-        isPingPong=is_ping,
-        tr_msg=rdic.get("body", {}).get("msg1"),
-        iv=iv, ekey=ekey, encrypt=encrypt
-    )
-
-def aes_cbc_base64_dec(key, iv, cipher_text):
-    cipher = AES.new(key.encode("utf-8"), AES.MODE_CBC, iv.encode("utf-8"))
-    return bytes.decode(unpad(cipher.decrypt(b64decode(cipher_text)), AES.block_size))
-
-# --- WebSocket Loop Class ---
-
-open_map = {}
-data_map = {}
-
-def add_open_map(name, request, data, kwargs=None):
-    if name not in open_map: open_map[name] = {"func": request, "items": [], "kwargs": kwargs}
-    if isinstance(data, list): open_map[name]["items"] += data
-    else: open_map[name]["items"].append(data)
-
-def add_data_map(tr_id, columns=None, encrypt=None, key=None, iv=None):
-    if tr_id not in data_map: data_map[tr_id] = {"columns": [], "encrypt": "N", "key": None, "iv": None}
-    if columns: data_map[tr_id]["columns"] = columns
-    if encrypt: data_map[tr_id]["encrypt"] = encrypt
-    if key: data_map[tr_id]["key"] = key
-    if iv: data_map[tr_id]["iv"] = iv
-
-class KISWebSocket:
-    def __init__(self, api_url, max_retries=3):
-        self.api_url, self.max_retries = api_url, max_retries
-        self.retry_count = 0
-
-    async def __subscriber(self, ws):
-        async for raw in ws:
-            if raw[0] in ["0", "1"]:
-                d1 = raw.split("|")
-                tr_id = d1[1]
-                dm = data_map[tr_id]
-                data = d1[3]
-                if dm["encrypt"] == "Y": data = aes_cbc_base64_dec(dm["key"], dm["iv"], data)
-                df = pd.read_csv(StringIO(data), header=None, sep="^", names=dm["columns"], dtype=object)
-                if self.on_result: self.on_result(ws, tr_id, df, dm)
-            else:
-                rsp = system_resp(raw)
-                add_data_map(rsp.tr_id, encrypt=rsp.encrypt, key=rsp.ekey, iv=rsp.iv)
-                if rsp.isPingPong: await ws.pong(raw)
-                if self.on_result: self.on_result(ws, rsp.tr_id, pd.DataFrame(), data_map[rsp.tr_id])
-
-    async def __runner(self):
-        url = f"{getTREnv().my_url_ws}{self.api_url}"
-        while self.retry_count < self.max_retries:
-            try:
-                async with websockets.connect(url) as ws:
-                    for name, obj in open_map.items():
-                        for item in obj["items"]:
-                            msg, cols = obj["func"]("1", item, **(obj["kwargs"] or {}))
-                            add_data_map(msg["body"]["input"]["tr_id"], columns=cols)
-                            await ws.send(json.dumps(msg))
-                    await self.__subscriber(ws)
-            except Exception as e:
-                print(f"WebSocket Error: {e}")
-                self.retry_count += 1
-                await asyncio.sleep(1)
-
-    def subscribe(self, request, data, kwargs=None):
-        add_open_map(request.__name__, request, data, kwargs)
-
-    def start(self, on_result):
-        self.on_result = on_result
-        try: asyncio.run(self.__runner())
-        except KeyboardInterrupt: pass
+# --- AES256 복호화 (실시간 데이터용) ---
+def aes256_cbc_decrypt(key, iv, text):
+    cipher = AES.new(key.encode('utf-8'), AES.MODE_CBC, iv.encode('utf-8'))
+    return unpad(cipher.decrypt(b64decode(text)), AES.block_size).decode('utf-8')
